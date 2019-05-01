@@ -21,10 +21,10 @@ module.exports = {
         proxy: true
     },
     proxy: {
-        '/api': {
-            target: 'http:127.0.0.1:9090',
-            pathRewrite: { '^/api': '' }
-        }
+        // '/api': {
+        //     target: 'http:127.0.0.1:9090',
+        //     pathRewrite: { '^/api': '' }
+        // }
     },
     plugins: [
         { src: '~plugins/iview.js', ssr: true }
@@ -33,7 +33,7 @@ module.exports = {
         '~assets/css/reset.css'
     ],
     router: {
-        base: '/wap/'  //打包时使用
+        //base: '/wap/'  //打包时使用
     },
     routes: [
         {

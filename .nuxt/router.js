@@ -2,14 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _395c34c4 = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages_about" */))
-const _58ebca71 = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages_contact" */))
-const _12fd48e0 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
-const _32ec8bf3 = () => interopDefault(import('..\\pages\\findPassword.vue' /* webpackChunkName: "pages_findPassword" */))
-const _624f231d = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
-const _669d390c = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
-const _15384b22 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
-const _0309c063 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _82bd2582 = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages_about" */))
+const _c310245c = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages_contact" */))
+const _f5ba6fe2 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
+const _37f7459c = () => interopDefault(import('..\\pages\\findPassword.vue' /* webpackChunkName: "pages_findPassword" */))
+const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
+const _affe29ca = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
+const _fd9ed83e = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
+const _434d6ff8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -80,42 +80,42 @@ const scrollBehavior = function (to, from, savedPosition) {
 export function createRouter() {
   return new Router({
     mode: 'history',
-    base: '/wap/',
+    base: '/',
     linkActiveClass: 'nuxt-link-active',
     linkExactActiveClass: 'nuxt-link-exact-active',
     scrollBehavior,
 
     routes: [{
       path: "/about",
-      component: _395c34c4,
+      component: _82bd2582,
       name: "about"
     }, {
       path: "/contact",
-      component: _58ebca71,
+      component: _c310245c,
       name: "contact"
     }, {
       path: "/detail",
-      component: _12fd48e0,
+      component: _f5ba6fe2,
       name: "detail"
     }, {
       path: "/findPassword",
-      component: _32ec8bf3,
+      component: _37f7459c,
       name: "findPassword"
     }, {
       path: "/list",
-      component: _624f231d,
+      component: _1f0fa35c,
       name: "list"
     }, {
       path: "/login",
-      component: _669d390c,
+      component: _affe29ca,
       name: "login"
     }, {
       path: "/register",
-      component: _15384b22,
+      component: _fd9ed83e,
       name: "register"
     }, {
       path: "/",
-      component: _0309c063,
+      component: _434d6ff8,
       name: "index"
     }],
 

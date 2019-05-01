@@ -1,7 +1,7 @@
 <template>
    <footer class='footer'>
         <Row class='nav'>
-            <Col span="6">
+            <!-- <Col span="6">
                  <a href="http://www.bengbuxx.com" class='f-white'>首页</a>
             </Col>
             <Col span="6" class='index-cates'>
@@ -30,7 +30,14 @@
             </Col>
             <Col span="6">
                 <div @click.stop='choose3'>个人信息</div>
-            </Col>
+            </Col> -->
+
+
+            <div class='index'>首页</div>
+            <div class='index'>动态</div>
+            <div class='index'>发布</div>
+            <div class='index'>消息</div>
+            <div class='index'>我的</div>
         </Row>
    </footer>
 </template>
@@ -121,6 +128,14 @@
     background: #5cadff;
     a {
         color: #fff;
+    }
+  }
+
+  .nav {
+    display: flex;
+    
+    div {
+      flex: 1;
     }
   }
 

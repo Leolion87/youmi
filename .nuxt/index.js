@@ -11,7 +11,7 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_038ad6cd from 'nuxt_plugin_axios_038ad6cd' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_axios_7ec29808 from 'nuxt_plugin_axios_7ec29808' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_iview_ab80ed00 from 'nuxt_plugin_iview_ab80ed00' // Source: ..\\plugins\\iview.js (mode: 'all')
 
 // Component: <NoSsr>
@@ -151,7 +151,7 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_038ad6cd === 'function') await nuxt_plugin_axios_038ad6cd(app.context, inject)
+  if (typeof nuxt_plugin_axios_7ec29808 === 'function') await nuxt_plugin_axios_7ec29808(app.context, inject)
   if (typeof nuxt_plugin_iview_ab80ed00 === 'function') await nuxt_plugin_iview_ab80ed00(app.context, inject)
 
   // If server-side, wait for async component to be resolved first

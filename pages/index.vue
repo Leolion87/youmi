@@ -1,23 +1,7 @@
 
 <template>
   <div class="index">
-    <header class="header">
-        <Row>
-            <Col span="8">蚌埠信息网</Col>
-            <Col span="8" offset="8" class="header-top">
-                <Row>
-                    <Col span="8">
-                        <img src="~/assets/images/login.png" class="" @click.stop="login">
-                    </Col>
-                    <Col span="8" offset="4">
-                        <img src="~/assets/images/register.png" @click.stop="register">
-                    </Col>
-                </Row>
-
-
-            </Col>
-        </Row>
-    </header>
+    <v-header></v-header>
     <div id="main">
        <!--banner-->
         <div class="banners">
@@ -47,47 +31,12 @@
         <!-- spirit-->
         <div class="index-image white">
             <div class="kind clearfix">
-
-                <a class='left' href="http://bengbuxx.com/zhaopin">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>招聘</span>
+                <a class='left' v-for='(item,$index) in kinds' :key='$index'>
+                    <img :src="item.imageUrl">
+                    <span>{{item.name}}</span>
                 </a>
-                <a class='left' href="http://bengbuxx.com/qiuzhi">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>求职</span>
-                </a>
-                <a class='left' href="http://bengbuxx.com/carMaket">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>车辆市场</span>
-                </a>
-                <a class='left' href="http://bengbuxx.com/education">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>教育培训</span>
-                </a>
-                <a class='left' href="http://bengbuxx.com/zulin">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>房屋租赁</span>
-                </a>
-                <a class='left' href="http://bengbuxx.com/buyhouse">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>房屋买卖</span>
-                </a>
-                <a class='left' href="http://bengbuxx.com/shopping">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>购物广场</span>
-                </a>
-                <a class='left' href="http://bengbuxx.com/lifeservice">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>生活服务</span>
-                </a>
-                <a class='left' href="http://bengbuxx.com/zhaoshang">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>招商加盟</span>
-                </a>
-                <a class='left' href="http://bengbuxx.com/makefriends">
-                    <img src="http://pic.app.0550.com/_20180627152452_5b333bc476458.png">
-                    <span>相亲交友</span>
-                </a>
+                
+                
             </div>
         </div>
         <div class='link white'>
@@ -113,7 +62,7 @@
             </Row>
         </div>
         <div class='news white'>
-            <div class='item' v-for='(item,$index) in news' :key='$index'>
+            <!-- <div class='item' v-for='(item,$index) in news' :key='$index'>
                 <a href="" v-if='item.images.length==3'>
                     <div class='detail'>
                         <h6>{{item.title}}</h6>
@@ -144,7 +93,41 @@
                         <img class='lazy' :src='item.images[0].src'>
                     </div>
                 </a>
-            </div>
+            </div> -->
+            <ul class='index-news-list'>
+                <li v-for='(item,$index) in news' :key='$index'>
+                    <a href="" v-if='item.images.length==3'>
+                        <div class='news-tit'>
+                            <h6>{{item.title}}</h6>
+                            <div class='news-tit-img1 pic3'>
+                                <span class='nimg' 
+                                      v-for='(item1,$index1) in item.images' 
+                                      :style = '{background:"url("+item1.src+");background-repeat: no-repeat;background-size: cover;display: inline-block; " } ' 
+                                      :key='$index1' >
+                                     
+                                </span>
+                            </div>
+                            <div class='news-info clearfix'>
+                                <span>{{item.name}}</span>
+                                <span>{{item.read}}阅读</span>
+                                <span class='right'>5分钟前</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href=""  v-if='item.images.length == 1'>
+                        <div class='news-tit news-right'>
+                            <h6>{{item.title}}</h6>
+                            <div class='news-info'>
+                                <span>{{item.name}}</span>
+                                <span>{{item.read}}阅读</span>
+                            </div>
+                        </div>
+                        <div class='pa news-img'>
+                            <img :src='item.images[0].src' class='lazy'>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <v-footer></v-footer>
@@ -153,6 +136,7 @@
 <script>
   import service from '~/service/index.js';
   import vFooter from '~/components/footer.vue';
+  import vHeader from '~/components/header.vue';
   export default {
     data(){
       return {
@@ -187,8 +171,6 @@
                 name: 'liqiang',
                 read: 1009,
                 images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
                     {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
                 ]
             },
@@ -247,138 +229,49 @@
                     {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
                 ]
             },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            }
+            
           ],
           showCatesPopTip: false,
           navActiveId: 1,
-          activeCateId: 0
+          activeCateId: 0,
+          kinds:[
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '新房'
+              },
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '求职招聘'
+              },
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '同城交友'
+              },
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '新房'
+              },
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '求职招聘'
+              },
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '同城交友'
+              },
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '新房'
+              },
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '求职招聘'
+              },
+              {
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '同城交友'
+              }
+          ]
       }
     },
     methods:{
@@ -409,7 +302,8 @@
         }
     },
     components:{
-        vFooter
+        vFooter,
+        vHeader
     }
   }
 </script>
@@ -419,21 +313,11 @@
     margin:0;
     padding:0
   }
-  header {
-      width:100%;
-      height:2.5rem;
-      line-height:2.5rem;
-      background:#2d8cf0;
-      color: #fff;
-      position:absolute;
-      z-index:5;
-      top:0;
-      text-align:center;
-  }
+  
   #main {
       width:100%;
       overflow:auto;
-      top:2rem;
+      top:4rem;
       position:absolute;
       z-index:10;
       bottom:2rem;
@@ -449,7 +333,7 @@
                   vertical-align: middle;
                   color: #222222;
                   font-size: 0rem;
-                  margin-top: 0.28rem;
+                  margin-top: 0.5rem;
                   width: 20%;
                   text-align: center;
                   line-height: 1.22;
@@ -521,135 +405,135 @@
             
           }
       }
-      .news {
-          margin-top: 0.3rem;
-          .item {
+      .news ul li {
+        position: relative;
+        clear: both;
+        padding-left: .5rem;
+        padding-right: .5rem;
+        a {
+            display: block;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
             position: relative;
-            // padding-left: .3rem;
-            // padding-right: .3rem;
-            padding: 0.25rem 0.5rem;
-            margin-top: 1rem;
-            a {
-                display: block;
-                padding-top: 0.2rem;
-                padding-bottom: 0.2rem;
-                position: relative;
-                min-height: 1.4rem;
-                .detail {
-                    h6 {
-                            color: #222222;
-                            font-size: 0.34rem;
-                            font-weight: normal;
-                          
-                            max-height: 2.5rem;
-                            display: -webkit-box;
-                            -webkit-box-orient: vertical;
-                            -webkit-line-clamp: 3;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                    }
-                    .news-tit-img1 {
-                        margin-top: .18rem;
-                    }
-                    .pic3 {
-                        .nimg {
-                                display: inline-block;
-                                vertical-align: middle;
-                                font-size: 0px;
-                                width: 32.5%;
-                                margin-left: 0.833%;
-                                position: relative;
-                                padding-top: 25%;
-                                background-size: cover;
-                                background-color: #ededed;
-                        }
-                    }
-                    .news-info {
-                        color: #949494;
-                        font-size: 0rem;
-                        margin-top: 0.14rem;
-                        span {
-                            margin-right: 0.2rem;
-                            font-size: 0.24rem;
-                            display: inline-block;
-                            vertical-align: middle;
-                            &:last-child {
-                                margin-right: 0rem;
-                            }
-                        }
-                    }
-                }
-                .news-right {
-                    margin-right: 7.86rem;
-                    h6 {
-                        color: #222222;
-                        font-size: 0.34rem;
-                        font-weight: normal;
-                        
-                        max-height: 2.5rem;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 3;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-                    .news-info {
-                        color: #949494;
-                        font-size: 0rem;
-                        margin-top: 0.14rem;
-                        span {
-                            margin-right: 0.2rem;
-                            font-size: 0.24rem;
-                            display: inline-block;
-                            vertical-align: middle;
-                            &:last-child {
-                                margin-right: 0rem;
-                            }
-                        }
-                    }
-                }
-                .news-img {
-                    width: 7.86rem;
-                    height: 4.4rem;
-                    font-size: 0px;
-                    top: 0.2rem;
-                    right: 0px;
-                    background-color: #ededed;
-                    .lazy {
-                            background-color: #F2F2F2;
-                            background-size: 76px auto;
-                            background-repeat: no-repeat;
-                            background-position: center;
-                    }
-                    img {
-                        display: inline-block;
-                        vertical-align: middle;
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-                .pa {
-                    position: absolute;
+            min-height: 10rem;
+            .news-tit{
+                h6 {
+                    color: #1c2438;
+                    font-size: 0.9rem;
+                    // font-weight: normal;
+                    // line-height: 1rem;
+                    // max-height: 2rem;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
             }
-          }
-      }
-  }
-    /*首页banner 图片*/
-    .banners img {
-        width: 375px;
-        height: 150px;
-    }
-
-    /*顶部icon*/
-    .header-top {
-        line-height: 2.5rem;
-        img {
-            cursor: pointer;
-            width:1.2rem;
-            /*height: 1.2rem;*/
-            text-align: center;
-
+            .news-info {
+                color: #949494;
+                font-size: 0rem;
+                margin-top: 0.14rem;
+                span {
+                    margin-right: 0.2rem;
+                    font-size: 0.24rem;
+                    display: inline-block;
+                    vertical-align: middle;
+                    :last-child {
+                        margin-right: 0rem;
+                    }
+                }
+            }
+        }
+        &:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            left: 0;
+            bottom: -5px;
+            height: 1px;
+            background-color: #eee;
+            -webkit-transform: scale(1,.5);
+            transform: scale(1,.5);
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
         }
     }
+  }
+/*首页banner 图片*/
+.banners img {
+    width: 375px;
+    height: 150px;
+}
+
+/*顶部icon*/
+.header-top {
+    line-height: 2.5rem;
+    img {
+        cursor: pointer;
+        width:1.2rem;
+        /*height: 1.2rem;*/
+        text-align: center;
+
+    }
+}
+
+
+.news-tit-img1 {
+    margin-top: .18rem;
+}
+.news-tit-img1.pic3 {
+    margin-left: -0.833%;
+    position: relative;
+    font-size: 0px;
+}
+
+.news-tit-img1 .nimg {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0px;
+    width: 32.5%;
+    margin-left: 0.833%;
+    position: relative;
+    padding-top: 25%;
+    
+    // background-color: #ededed;
+
+    // background-repeat: no-repeat; 
+    // background-size: cover; 
+    // display: inline-block;
+}
+
+
+.news-right {
+    min-height: 1.4rem;
+    margin-right: 7.5rem;
+}
+
+
+ a .news-img {
+    width: 7.5rem;
+    height: 5.5rem;
+    font-size: 0px;
+    top: 0.2rem;
+    right: 0px;
+    background-color: #ededed;
+}
+
+.pa {
+    position: absolute;
+}
+.news-img img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+
+.lazy, .nimg {
+    background-color: #F2F2F2;
+    background-size: 76px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 </style>
