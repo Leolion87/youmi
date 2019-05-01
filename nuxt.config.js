@@ -1,14 +1,14 @@
 module.exports = {
     head: {
-        titleTemplate: '蚌埠信息网',
+        titleTemplate: '新房圈-找渠道,找分销,首选新房圈-专业新房渠道对接平台',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'description', name: 'description', content: '蚌埠信息网是蚌埠人的网上家园,免费分类发布信息,求职、招聘、房屋租赁、房屋买卖、生活服务等。' },
-            { hid: 'keywords', name: 'keywords', content: '蚌埠信息网,蚌埠招聘，蚌埠求职，蚌埠跳蚤市场，蚌埠租房，蚌埠二手' }
+            { hid: 'description', name: 'description', content: '新房圈-找渠道,找分销,首选新房圈-专业新房渠道对接平台' },
+            { hid: 'keywords', name: 'keywords', content: '新房圈-找渠道,找分销,首选新房圈-专业新房渠道对接平台' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+            { rel: 'icon', type: 'image/x-icon', href: './assets/images/favicon.ico' }
         ]
     },
     build: {
@@ -75,6 +75,11 @@ module.exports = {
             path: '/findPassword',
             name: 'findPassword',
             component: 'pages/findPassword.vue'
+        },
+        {
+            path: '/info',
+            name: 'info',
+            component: 'pages/info.vue'
         }
     ]
 }

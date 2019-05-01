@@ -2,9 +2,10 @@
     <header class="header">
         <Row type="flex" justify="space-between">
             <Col span="6" class-name='ym-avatar'>
-                <Avatar icon="person" 
-                        size="large" 
-                        src="https://i.loli.net/2017/08/21/599a521472424.jpg"/>
+               <div class='avatar' @click='clickAvatar'>
+                 <img src='https://i.loli.net/2017/08/21/599a521472424.jpg'>
+               </div>
+                
             </Col>
             <Col span="12" class-name='ym-logo'>
                <img src="~/assets/images/logo.png" style='height:3rem;'>
@@ -26,7 +27,10 @@
          }
     },
     methods: {
-
+      clickAvatar(){
+        console.log("test")
+        this.$router.push('/info');
+      }
     },
     components:{
      
@@ -46,8 +50,16 @@
       top:0;
     //   text-align:center;
       .ym-avatar{
-        // align-items:  flex-start;
-       cursor:pointer;
+          // align-items:  flex-start;
+          cursor:pointer;
+          .avatar img{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 100%;
+            cursor: pointer;
+          }
       }
       .ym-logo {
         text-align: center;

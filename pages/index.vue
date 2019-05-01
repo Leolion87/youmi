@@ -62,38 +62,6 @@
             </Row>
         </div>
         <div class='news white'>
-            <!-- <div class='item' v-for='(item,$index) in news' :key='$index'>
-                <a href="" v-if='item.images.length==3'>
-                    <div class='detail'>
-                        <h6>{{item.title}}</h6>
-                        <div class='news-tit-img1 pic3'>
-                            <span class='nimg' 
-                                v-for='(img,$index) in item.images' 
-                                :key='$index'
-                                :style="{backgroundImage:'url(' + img.src + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"
-                                >
-                            </span>
-                        </div>
-                        <div class='news-info clearfix'>
-                            <span>{{item.name}}</span>
-                            <span>{{item.read}}阅读</span>
-                            <span class='right'>{{item.time}}</span>
-                        </div>
-                    </div>
-                </a>
-                <a href=""  v-if='item.images.length < 3'>
-                    <div class='news-tit news-right'>
-                        <h6>{{item.title}}</h6>
-                        <div class='news-info'>
-                            <span>{{item.name}}</span>
-                            <span>{{item.read}}</span>
-                        </div>
-                    </div>
-                    <div class='pa news-img'>
-                        <img class='lazy' :src='item.images[0].src'>
-                    </div>
-                </a>
-            </div> -->
             <ul class='index-news-list'>
                 <li v-for='(item,$index) in news' :key='$index'>
                     <a href="" v-if='item.images.length==3'>
@@ -149,8 +117,28 @@
                 name: 'liqiang',
                 read: 1009,
                 images: [
+                    {src:'http://pic.bbs.0550.com/forum/201905/01/162439r3pk8nzciz66gipx.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'},
+                    {src:'http://pic.bbs.0550.com/forum/201905/01/171356mn658hehmytytqfy.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'},
+                    {src:'http://pic.bbs.0550.com/forum/201905/01/171535m4899c41b4e6evbv.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'}
+                ]
+            },
+            {
+                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
+                time: '2019-02-01',
+                name: 'liqiang',
+                read: 1009,
+                images: [
+                    {src:'http://pic.app.0550.com/_20190501153321_5cc94bc13f176.png',title:'1',alt: '1'},
                     {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
+                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
+                ]
+            },
+            {
+                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
+                time: '2019-02-01',
+                name: 'liqiang',
+                read: 1009,
+                images: [
                     {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
                 ]
             },
@@ -171,15 +159,6 @@
                 name: 'liqiang',
                 read: 1009,
                 images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
                     {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
                     {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
                     {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
@@ -191,20 +170,9 @@
                 name: 'liqiang',
                 read: 1009,
                 images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
-                ]
-            },
-            {
-                title: '最新通知！关于滁州碧桂园中央名邸延迟交房消息通告：调整达标后逐户沟通收楼',
-                time: '2019-02-01',
-                name: 'liqiang',
-                read: 1009,
-                images: [
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'},
-                    {src:'http://pic.app.0550.com/_20190329184045_5c9df62d1c173.jpg',title:'1',alt: '1'}
+                    {src:'http://pic.app.0550.com/_20190501153319_5cc94bbf0bcac.png',title:'1',alt: '1'},
+                    {src:'http://pic.app.0550.com/_20190501133254_5cc92f86d882a.jpg',title:'1',alt: '1'},
+                    {src:'http://pic.app.0550.com/_20190501153321_5cc94bc13f176.png',title:'1',alt: '1'}
                 ]
             },
             {

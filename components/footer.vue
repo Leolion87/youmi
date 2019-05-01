@@ -33,7 +33,9 @@
             </Col> -->
 
 
-            <div class='index'>首页</div>
+            <div class='navs'>
+                首页
+            </div>
             <div class='index'>动态</div>
             <div class='index'>发布</div>
             <div class='index'>消息</div>
@@ -139,5 +141,28 @@
     }
   }
 
+  .navs {
+    .home {
+          display: inline-block;
+          vertical-align: middle;
+          text-align: center;
+          position: relative;
+      span {
+        display: block;
+        vertical-align: middle;
+      }
+      .home-icon {
+        width: 1rem;
+        height: 1rem;
+        background: url('../assets/images/index.png') no-repeat 1px 1px;
+      }
+      .home-txt{
+          font-size: .22rem;
+          color: #888;
+          height: .3rem;
+          line-height: .3rem;
+      }
+    }
+  }
 </style>
 

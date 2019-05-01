@@ -139,3 +139,22 @@ html,body,#app, #homepage{ height: 100%;}
 .f-white {
   color: #fff;
 }
+
+.margin-top5{
+  margin-top: 5px;
+}
+.margin-top10{
+  margin-top: 10px;
+}
+.margin-top5{
+  margin-top: 5px;
+}
+.margin-top10{
+  margin-top: 10px;
+}
+.margin-top15{
+  margin-top: 15px;
+}
+.margin-top20{
+  margin-top: 20px;
+}
