@@ -77,9 +77,14 @@ module.exports = {
             component: 'pages/findPassword.vue'
         },
         {
-            path: '/info',
-            name: 'info',
-            component: 'pages/info.vue'
+            path:'/info',
+            name:'info',
+            component:'pages/info.vue',
+        },
+        {
+            path: '/edit',
+            name: 'edit',
+            component: 'pages/edit.vue'
         }
     ]
 }

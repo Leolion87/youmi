@@ -5,6 +5,7 @@ import { interopDefault } from './utils'
 const _82bd2582 = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages_about" */))
 const _c310245c = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages_contact" */))
 const _f5ba6fe2 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
+const _2e57cac8 = () => interopDefault(import('..\\pages\\edit.vue' /* webpackChunkName: "pages_edit" */))
 const _37f7459c = () => interopDefault(import('..\\pages\\findPassword.vue' /* webpackChunkName: "pages_findPassword" */))
 const _4d146128 = () => interopDefault(import('..\\pages\\info.vue' /* webpackChunkName: "pages_info" */))
 const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
@@ -98,6 +99,10 @@ export function createRouter() {
       path: "/detail",
       component: _f5ba6fe2,
       name: "detail"
+    }, {
+      path: "/edit",
+      component: _2e57cac8,
+      name: "edit"
     }, {
       path: "/findPassword",
       component: _37f7459c,

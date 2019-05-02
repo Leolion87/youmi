@@ -20,7 +20,7 @@
             </Col>
             <Col span='24' class='margin-top10'>
                 <Col span='12'>
-                    <div class='edit-data user-data'>
+                    <div class='edit-data user-data' @click.stop='editData'>
                         <Icon type="ios-create-outline" size='16'/>
                         编辑资料
                     </div>
@@ -144,7 +144,9 @@ import vHeader from '~/components/cheader.vue';
          }
     },
     methods: {
-     
+      editData(){
+          this.$router.push('/edit');
+      }
 
     },
     components:{
