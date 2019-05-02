@@ -349,7 +349,6 @@ import vFooter from '~/components/footer.vue';
                 }
                 .cate-right{
                     width: 3.5rem;
-                    // border-left: 1px solid #ccc;
                     line-height:25px;
                     &:before{
                         position: absolute;
@@ -401,7 +400,6 @@ import vFooter from '~/components/footer.vue';
                 }
             }
             .house-list{
-                // padding: 5px 8px;
                 .house {
                     padding: 5px 8px;
                     border-bottom: 1px solid #ccc;
