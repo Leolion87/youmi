@@ -46,7 +46,7 @@ module.exports = {
             path: '/login',
             component: 'pages/login.vue'
         },
-        {
+        {//新房楼盘
             name: 'list',
             path: '/list',
             component: 'pages/list.vue'

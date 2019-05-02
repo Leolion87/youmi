@@ -31,12 +31,12 @@
         <!-- spirit-->
         <div class="index-image white">
             <div class="kind clearfix">
-                <a class='left' v-for='(item,$index) in kinds' :key='$index'>
+                <a class='left' 
+                   v-for='(item,$index) in kinds' 
+                   :key='$index' @click='chooseKind(item)'>
                     <img :src="item.imageUrl">
                     <span>{{item.name}}</span>
                 </a>
-                
-                
             </div>
         </div>
         <div class='link white'>
@@ -203,41 +203,45 @@
           navActiveId: 1,
           activeCateId: 0,
           kinds:[
-              {
+              { id: 1,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '新房'
+                name: '新房楼盘'
               },
-              {
+              { id: 2,
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '经纪公司'
+              },
+              { id: 3,
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '行业新闻'
+              },
+              { id: 4,
+                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                name: '融资总包'
+              },
+              { id: 5,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '求职招聘'
               },
-              {
+              { id: 6,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '同城交友'
+                name: '新盘推荐'
               },
-              {
+              { id: 7,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '新房'
+                name: '同行交友'
               },
-              {
+              { id: 8,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '求职招聘'
+                name: '行业爆料'
               },
-              {
+              { id: 9,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '同城交友'
+                name: '需求大厅'
               },
-              {
+              { id: 0,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '新房'
-              },
-              {
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '求职招聘'
-              },
-              {
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '同城交友'
+                name: '全部模块'
               }
           ]
       }
@@ -265,9 +269,18 @@
       register(){
         this.$router.push('/register')
       },
-        login(){
-            this.$router.push('/login')
+      login(){
+        this.$router.push('/login')
+      },
+      chooseKind(item){
+        let _this = this;
+        switch(item.id) {
+            case 1:
+                //新房楼盘
+                _this.$router.push('/list');
+            break;
         }
+      }
     },
     components:{
         vFooter,

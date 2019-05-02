@@ -70,7 +70,8 @@
                 </Col>
             </Row>
         </div>
-        <div class='more-selected-panel'>
+
+        <div class='more-selected-panel' v-show='showAllSortByPanel'>
             <div class='inner'>
                 <div class='sorts margin-top10'>
                         <h4>排序</h4>
@@ -118,7 +119,52 @@
 
      </div>
      <div class='content'>
-
+         <div class='total-house'>
+             共有<span class='total-numer'>1000</span>个楼盘
+         </div>
+         <div class='house-list'>
+             <Row class-name='house' 
+                  v-for='(item,$index) in houses' 
+                  :class='{isTopHouse: item.isTop == 1}'
+                  :key='$index'>
+                <Col span='7'>
+                    <img :src='item.thumbnail' style='width: 7rem;'>
+                </Col>
+                <Col span='17' class='house-des'>
+                    <Col span='24'>
+                        <Col span='13' offset="1">
+                          <span class='isTop' v-if='item.isTop == 1'>顶</span> 
+                          <span class='house-name'>{{item.name}}</span>
+                        </Col>
+                        <Col span='6'  offset="4" class-name='house-price'>
+                          {{item.price}}元/平
+                        </Col>
+                    </Col>
+                    <Col span='24' class-name='margin-top5'>
+                        <Col span='13' offset="1">
+                          <span class='house-address'>{{item.address}}</span> 
+                        </Col>
+                        <Col span='7'  
+                             offset="3" 
+                             class-name='house-type' v-if='item.houseType.length > 0'>
+                            <span v-for='(h,$hindex) in item.houseType' :key='$hindex'>
+                                {{h}}
+                            </span>
+                        </Col>
+                    </Col>
+                    <Col span='24' class-name='margin-top5'>
+                        <Col span='13' offset="1">
+                          <span class='isCommision' v-if='item.isCommission == 1'>佣</span> 
+                          <span class='commision-text'>暂无权限查看</span>
+                        </Col>
+                        
+                    </Col>
+                    <Col span='23' offset="1" class-name='margin-top5'>
+                        {{item.company}}
+                    </Col>
+                </Col>
+             </Row>
+         </div>
      </div>
    </div>
 </template>
@@ -175,7 +221,98 @@ import vFooter from '~/components/footer.vue';
                         }
                     ],
             }],
-
+            showAllSortByPanel: false,
+            //楼盘列表
+            houses:[
+                {
+                  id: 1,
+                  name: '万科云',
+                  isTop: 1,
+                  isCommission: 1,
+                  price: 8000,
+                  address: '杭州,萧山',
+                  houseType: ['住宅','别墅'],
+                  company: '杭州悠米网络科技有限公司',
+                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
+                },
+                {
+                  id: 2,
+                  name: '碧桂园',
+                  isTop: 1,
+                  isCommission: 1,
+                  price: 8000,
+                  address: '苏州,wu',
+                  houseType: ['住宅','别墅'],
+                  company: '杭州悠米网络科技有限公司',
+                  thumbnail: 'http://pic.app.0550.com/_20190502151222_5cca985630226.jpg'
+                },
+                {
+                  id: 3,
+                  name: '万科云',
+                  isTop: 1,
+                  isCommission: 1,
+                  price: 8000,
+                  address: '杭州,萧山',
+                  houseType: ['住宅','别墅'],
+                  company: '杭州悠米网络科技有限公司',
+                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
+                },
+                {
+                  id: 4,
+                  name: '碧桂园',
+                  isTop: 0,
+                  isCommission: 1,
+                  price: 8000,
+                  address: '苏州,wu',
+                  houseType: ['住宅','别墅'],
+                  company: '杭州悠米网络科技有限公司',
+                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
+                },
+                {
+                  id: 1,
+                  name: '万科云',
+                  isTop: 0,
+                  isCommission: 1,
+                  price: 8000,
+                  address: '杭州,萧山',
+                  houseType: ['住宅','别墅'],
+                  company: '杭州悠米网络科技有限公司',
+                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
+                },
+                {
+                  id: 6,
+                  name: '碧桂园',
+                  isTop: 0,
+                  isCommission: 1,
+                  price: 8000,
+                  address: '苏州,wu',
+                  houseType: ['住宅','别墅'],
+                  company: '杭州悠米网络科技有限公司',
+                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
+                },
+                {
+                  id: 7,
+                  name: '万科云',
+                  isTop: 0,
+                  isCommission: 1,
+                  price: 8000,
+                  address: '杭州,萧山',
+                  houseType: ['住宅','别墅'],
+                  company: '杭州悠米网络科技有限公司',
+                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
+                },
+                {
+                  id: 8,
+                  name: '碧桂园',
+                  isTop: 0,
+                  isCommission: 1,
+                  price: 8000,
+                  address: '苏州,wu',
+                  houseType: ['住宅','别墅'],
+                  company: '杭州悠米网络科技有限公司',
+                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
+                },
+            ]
          }
     },
     methods: {
@@ -249,18 +386,71 @@ import vFooter from '~/components/footer.vue';
                 }
             }
         }
-        .content {
-            .content{
-                position:relative;
-                -webkit-box-flex:1;
-                -webkit-flex:1;
-                flex:1;
-                overflow:auto;
-                -webkit-overflow-scrolling:touch;
+        .content{
+            position: absolute;
+            top: 6rem;
+            left: 0;
             
-                background-color:#ccc;
+            width: 100%;
+            .total-house {
+                padding: 5px 8px;
+                background: #F0F0F0;
+                border-bottom: 1px solid #ccc;
+                .total-numer {
+                    font-weight: bold;
+                }
+            }
+            .house-list{
+                // padding: 5px 8px;
+                .house {
+                    padding: 5px 8px;
+                    border-bottom: 1px solid #ccc;
+                    &.isTopHouse {
+                        background: #F0F0F0;
+                    }
+                    .house-des {
+                        .isTop {
+                           display: inline-block;
+                           width: 16px;
+                           height: 16px;
+                           text-align: center;
+                           line-height: 16px;
+                           font-size: 0.3rem;
+                           background: #f90;
+                           color: #fff;
+                        }
+                        .house-name {
+                            // font-family: '黑体';
+                            font-weight: bold;
+                            font-size: 1rem;
+                            color: #17233d;
+                        }
+                        .house-price {
+                            color: #ed4014;
+                        }
+                        .house-type {
+                            span {
+                                font-size: 0.5rem;
+                            }
+                        }
+                        .isCommision {
+                            display: inline-block;
+                           width: 16px;
+                           height: 16px;
+                           text-align: center;
+                           line-height: 16px;
+                           font-size: 0.3rem;
+                           background: #ed4014;
+                           color: #fff;
+                        }
+                        .commision-text {
+                            color: red;
+                        }
+                    }
+                }
             }
         }
+
     }
 
     .more-selected-panel {
