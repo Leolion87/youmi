@@ -71,22 +71,51 @@
             </Row>
         </div>
         <div class='more-selected-panel'>
-            <div class='sorts'>
-                <h4>排序</h4>
-                <div class='h-sort'>
-                    <a href=''></a>
-                    <a href=''></a>
-                    <a href=''></a>
-                    <a href=''></a>
+            <div class='inner'>
+                <div class='sorts margin-top10'>
+                        <h4>排序</h4>
+                        <div class='h-sort'>
+                            <a href='' class='active'>不限</a>
+                            <a href='' >价格从高到低</a>
+                            <a href=''>价格从低到高</a>
+                            <a href=''>发布时间排序</a>
+                            <a href=''>点击量排序</a>
+                        </div>
+                    </div>
+                    <div class='sorts margin-top10'>
+                        <h4>物业类型</h4>
+                        <div class='wuye-sort'>
+                            <a href=''>不限</a>
+                            <a href=''>住宅</a>
+                            <a href='' class='active'>别墅</a>
+                            <a href=''>商住</a>
+                            <a href=''>商铺</a>
+                            <a href=''>厂房</a>
+                            <a href=''>写字楼</a>
+                        </div>
+                    </div>
+                    <div class='sorts margin-top10'>
+                        <h4>装修状态</h4>
+                        <div class='status-sort'>
+                            <a href='' class='active'>不限</a>
+                            <a href='' >毛坯</a>
+                            <a href=''>简装</a>
+                            <a href=''>精装修</a>
+                        </div>
                 </div>
             </div>
-            <div class='sorts'>
-                <h4>物业类型</h4>
-            </div>
-            <div class='sorts'>
-                <h4>装修状态</h4>
+            <div class='sort-btn'>
+               <Row type="flex" justify="space-between">
+                    <Col span="4">
+                         <Button>重置</Button>
+                    </Col>
+                    <Col span="4">
+                        <Button type="primary">确定</Button>
+                    </Col>
+               </Row>
             </div>
         </div>
+
      </div>
      <div class='content'>
 
@@ -178,6 +207,9 @@ import vFooter from '~/components/footer.vue';
             .xinfang-cate {
                 height: 25px;
                 padding: 0 3px;
+                .sortby {
+                    border-bottom: 1px solid red;
+                }
                 .cate-right{
                     width: 3.5rem;
                     // border-left: 1px solid #ccc;
@@ -237,21 +269,44 @@ import vFooter from '~/components/footer.vue';
         left: 0px;
         height: 100%;
         width: 100%;
-        background: #eee;
-
-        padding: 5px 8px;
+        // background: #eee;
+        .inner {
+                    padding: 5px 8px;
         text-align: left;
         h4 {
             font-size: 0.5rem;
         }
-        .h-sort{
-            a {
+        a {
                 display: inline-block;
-                width: 33%;
+                margin-left: 0.5rem;
+                width: 30%;
                 height: 30px;
+                margin-top: 0.4rem;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 4px;
                 border: 1px solid #ccc;
+                color: #515a6e;
+            &.active {
+                color: #fff;
+                background: #2b85e4;
             }
         }
+        
+        }
+        .sort-btn {
+            margin-top: 10px;
+            padding: 5px 8px;
+            border-top: 1px solid #ccc;
+        }
+        
+        
+    }
+
+    .sortby {
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        padding: 6px 0;
     }
 </style>
 
