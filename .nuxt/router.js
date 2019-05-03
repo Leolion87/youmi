@@ -11,6 +11,7 @@ const _4d146128 = () => interopDefault(import('..\\pages\\info.vue' /* webpackCh
 const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
 const _affe29ca = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
 const _fd9ed83e = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
+const _cee2dc34 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
 const _434d6ff8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
@@ -123,6 +124,10 @@ export function createRouter() {
       path: "/register",
       component: _fd9ed83e,
       name: "register"
+    }, {
+      path: "/search",
+      component: _cee2dc34,
+      name: "search"
     }, {
       path: "/",
       component: _434d6ff8,

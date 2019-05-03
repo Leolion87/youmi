@@ -42,6 +42,11 @@ module.exports = {
             component: 'pages/index.vue'
         },
         {
+            name: 'index-search',
+            path: '/search',
+            component: 'pages/home/search.vue'
+        },
+        {
             name: 'login',
             path: '/login',
             component: 'pages/login.vue'
