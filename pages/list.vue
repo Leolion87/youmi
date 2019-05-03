@@ -457,35 +457,39 @@ import vFooter from '~/components/footer.vue';
         left: 0px;
         height: 100%;
         width: 100%;
+        background: #fff;
+        z-index: 999999;
         // background: #eee;
         .inner {
-                    padding: 5px 8px;
-        text-align: left;
-        h4 {
-            font-size: 0.5rem;
-        }
-        a {
-                display: inline-block;
-                margin-left: 0.5rem;
-                width: 30%;
-                height: 30px;
-                margin-top: 0.4rem;
-                line-height: 30px;
-                text-align: center;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                color: #515a6e;
-            &.active {
-                color: #fff;
-                background: #2b85e4;
+            padding: 5px 8px;
+            text-align: left;
+            background: #fff;
+            h4 {
+                font-size: 0.5rem;
             }
-        }
+            a {
+                    display: inline-block;
+                    margin-left: 0.5rem;
+                    width: 30%;
+                    height: 30px;
+                    margin-top: 0.4rem;
+                    line-height: 30px;
+                    text-align: center;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    color: #515a6e;
+                &.active {
+                    color: #fff;
+                    background: #2b85e4;
+                }
+            }
         
         }
         .sort-btn {
             margin-top: 10px;
             padding: 5px 8px;
             border-top: 1px solid #ccc;
+            background: #fff;
         }
         
         

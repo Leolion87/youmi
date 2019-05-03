@@ -11,9 +11,7 @@
                <img src="~/assets/images/logo.png" style='height:3rem;'>
             </Col>
             <Col span="6" class-name='ym-search'>
-                <Icon type="ios-search" size='30'></Icon>
-
-
+                <Icon type="ios-search" size='30' @click.stop='indexSearch'></Icon>
             </Col>
         </Row>
 
@@ -28,8 +26,10 @@
     },
     methods: {
       clickAvatar(){
-        console.log("test")
         this.$router.push('/info');
+      },
+      indexSearch(){
+        this.$router.push('/search');
       }
     },
     components:{

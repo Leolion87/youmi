@@ -44,7 +44,7 @@ module.exports = {
         {
             name: 'index-search',
             path: '/search',
-            component: 'pages/home/search.vue'
+            component: 'pages/search.vue'
         },
         {
             name: 'login',
