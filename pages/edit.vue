@@ -66,7 +66,8 @@
                 <Col span='24'>
                     <Col span="8">认证</Col>
                     <Col span="6" offset="10">
-                        <a href='#'>前去认证</a>
+                        <a href='javascript:void(0);' 
+                           @click.stop='goToAuth'>前去认证</a>
                         <Icon type="ios-arrow-forward" />
                     </Col>
                 </Col>
@@ -88,7 +89,9 @@
             }
         },
         methods: {
-
+            goToAuth(){
+                this.$router.push('/auth');
+            }
         },
         components:{
 

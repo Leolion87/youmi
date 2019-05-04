@@ -86,10 +86,15 @@ module.exports = {
             name:'info',
             component:'pages/info.vue',
         },
-        {
+        {//编辑资料
             path: '/edit',
             name: 'edit',
             component: 'pages/edit.vue'
-        }
+        },
+        {//企业认证
+            name: 'auth',
+            path: '/auth',
+            component: 'pages/auth.vue'
+        },
     ]
 }

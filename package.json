@@ -9,7 +9,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "iview": "^3.3.3",
-    "nuxt": "^2.4.5"
+    "nuxt": "^2.4.5",
+    "v-distpicker": "^1.2.1",
+    "vue-city-bspicker": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
