@@ -4,6 +4,7 @@ import { interopDefault } from './utils'
 
 const _82bd2582 = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages_about" */))
 const _24393b66 = () => interopDefault(import('..\\pages\\auth.vue' /* webpackChunkName: "pages_auth" */))
+const _7dba8faf = () => interopDefault(import('..\\pages\\company.vue' /* webpackChunkName: "pages_company" */))
 const _c310245c = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages_contact" */))
 const _f5ba6fe2 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
 const _2e57cac8 = () => interopDefault(import('..\\pages\\edit.vue' /* webpackChunkName: "pages_edit" */))
@@ -97,6 +98,10 @@ export function createRouter() {
       path: "/auth",
       component: _24393b66,
       name: "auth"
+    }, {
+      path: "/company",
+      component: _7dba8faf,
+      name: "company"
     }, {
       path: "/contact",
       component: _c310245c,

@@ -7,6 +7,7 @@
             <Row class-name='margin-top15'>
                 <Col span='5' class-name='item-title'>
                   地址:
+                  
                 </Col>
                 <Col span='18' offset='1'>
                     <Col span='6'>
@@ -126,8 +127,7 @@
     </div>
 </template>
 <script>
-    // import vueCityPicker from 'vue-city-bspicker'
-     //import { province, city, area } from '../assets/js/data.js';
+    import VDistpicker from 'v-distpicker'
     export default {
         data(){
             return {
@@ -237,7 +237,7 @@
             }
         },
         components:{
-            
+            VDistpicker 
         }
     }
 </script>

@@ -96,5 +96,10 @@ module.exports = {
             path: '/auth',
             component: 'pages/auth.vue'
         },
+        {//经纪公司
+            name: 'company',
+            path: '/company',
+            component: 'pages/company.vue'
+        },
     ]
 }
