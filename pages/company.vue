@@ -11,7 +11,9 @@
                 <span>贝壳</span>
                 <span>Q房</span>
                 <span>房天下</span>
+                <span>我爱我家</span>
                 <span>吉屋</span>
+                <span>365房产</span>
             </div>
             <div class='cate-right right'>
                 <Icon type="ios-search-outline" size='20' />查找</div>

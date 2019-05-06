@@ -279,6 +279,9 @@
                 //新房楼盘
                 _this.$router.push('/list');
             break;
+            case 2: 
+                 _this.$router.push('/company');
+            break;
         }
       }
     },
