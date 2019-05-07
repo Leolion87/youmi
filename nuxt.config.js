@@ -101,5 +101,10 @@ module.exports = {
             path: '/company',
             component: 'pages/company.vue'
         },
+        {//行业新闻
+            name: 'news',
+            path: '/news',
+            component: 'pages/news.vue'
+        }
     ]
 }

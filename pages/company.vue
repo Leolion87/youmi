@@ -18,6 +18,54 @@
             <div class='cate-right right'>
                 <Icon type="ios-search-outline" size='20' />查找</div>
         </div>
+        <div class='sortby'>
+            <Row>
+                <Col span="6">
+                    <Cascader :data="data" @on-change="handleChange">
+                        {{ text }} <Icon type="md-arrow-dropdown" />
+                    </Cascader>
+                </Col>
+                <Col span="6">
+                    <Dropdown>
+                        <span>
+                            人数
+                            <Icon type="md-arrow-dropdown" />
+                        </span>
+                        <DropdownMenu slot="list">
+                            <DropdownItem>不限</DropdownItem>
+                            <DropdownItem>10-20人</DropdownItem>
+                            <DropdownItem>20-30人</DropdownItem>
+                            <DropdownItem>30-50人</DropdownItem>
+                            <DropdownItem>50-80人</DropdownItem>
+                            <DropdownItem>80-120人</DropdownItem>
+                            <DropdownItem>120-150人</DropdownItem>
+                            <DropdownItem>150-200人</DropdownItem>
+                            <DropdownItem>200-300人</DropdownItem>
+                            <DropdownItem>300-500人</DropdownItem>
+                            <DropdownItem>500人</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Col>
+                <Col span="6">
+                    <Dropdown>
+                        <span>
+                            性质
+                            <Icon type="md-arrow-dropdown" />
+                        </span>
+                        <DropdownMenu slot="list">
+                            <DropdownItem>不限</DropdownItem>
+                            <DropdownItem>分销公司</DropdownItem>
+                            <DropdownItem>总代公司</DropdownItem>
+                            <DropdownItem>中介门店</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Col>
+                <Col span="6" class-name='more-sort'>
+                   <span>更多</span>
+                   <Icon type="md-arrow-dropdown" />
+                </Col>
+            </Row>
+        </div>
      </div>
      <div class='content'>
          <div class='total-company'>
@@ -38,9 +86,9 @@
                           <span class='company-name'>{{item.company}}</span>
                         </Col>
                         <Col span='5'  offset="5" class-name='company-price'>
-                           <Button type="primary" v-if=" item.hasAppointment == 1" disabled size='small'>已预约</Button>
+                           <Button type="success" v-if=" item.hasAppointment == 1" disabled size='small'>已预约</Button>
+                           <Button type="warning" v-else-if="item.hasAppointment == 2" disabled size='small'>审核中</Button>
                            <Button type="primary" v-else size='small'>预约</Button>
-                           
                         </Col>
                     </Col>
                     <Col span='24' class-name='margin-top10'>
@@ -132,7 +180,7 @@ import vFooter from '~/components/footer.vue';
                 {
                   id: 1,
                   isTop: 1,
-                  hasAppointment: 0,
+                  hasAppointment: 2,// 0:预约  1： 已预约 2： 审核中
                   isCommission: 1,
                   province:'江苏',
                   city: '苏州',
@@ -325,7 +373,7 @@ import vFooter from '~/components/footer.vue';
         }
         .content{
             position: absolute;
-            top: 4.2rem;
+            top: 6.5rem;
             left: 0;
             
             width: 100%;

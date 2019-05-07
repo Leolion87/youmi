@@ -12,6 +12,7 @@ const _37f7459c = () => interopDefault(import('..\\pages\\findPassword.vue' /* w
 const _4d146128 = () => interopDefault(import('..\\pages\\info.vue' /* webpackChunkName: "pages_info" */))
 const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
 const _affe29ca = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
+const _21fe5b11 = () => interopDefault(import('..\\pages\\news.vue' /* webpackChunkName: "pages_news" */))
 const _fd9ed83e = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
 const _cee2dc34 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
 const _434d6ff8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
@@ -130,6 +131,10 @@ export function createRouter() {
       path: "/login",
       component: _affe29ca,
       name: "login"
+    }, {
+      path: "/news",
+      component: _21fe5b11,
+      name: "news"
     }, {
       path: "/register",
       component: _fd9ed83e,

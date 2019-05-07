@@ -282,6 +282,10 @@
             case 2: 
                  _this.$router.push('/company');
             break;
+            case 3: 
+                //行业新闻
+                _this.$router.push('/news');
+            break;
         }
       }
     },
