@@ -103,8 +103,8 @@ module.exports = {
         },
         {//行业新闻
             name: 'news',
-            path: '/news',
-            component: 'pages/news.vue'
+            path: '',
+            component: 'pages/news/index.vue'
         }
     ]
 }

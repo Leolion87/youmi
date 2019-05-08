@@ -158,3 +158,11 @@ html,body,#app, #homepage{ height: 100%;}
 .margin-top20{
   margin-top: 20px;
 }
+
+.title {
+  color: #17233d;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: "PingFang SC""Microsoft YaHei","微软雅黑",Arial,sans-serif;
+
+}

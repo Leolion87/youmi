@@ -33,6 +33,7 @@
                         </span>
                         <DropdownMenu slot="list">
                             <DropdownItem>不限</DropdownItem>
+                            <DropdownItem>1-10人</DropdownItem>
                             <DropdownItem>10-20人</DropdownItem>
                             <DropdownItem>20-30人</DropdownItem>
                             <DropdownItem>30-50人</DropdownItem>
@@ -42,7 +43,7 @@
                             <DropdownItem>150-200人</DropdownItem>
                             <DropdownItem>200-300人</DropdownItem>
                             <DropdownItem>300-500人</DropdownItem>
-                            <DropdownItem>500人</DropdownItem>
+                            <DropdownItem>500人以上</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
