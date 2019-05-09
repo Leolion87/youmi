@@ -290,9 +290,9 @@
                 //融资总包
                 _this.$router.push('/finance');
             break;
-            case 4: 
-                //融资总包
-                _this.$router.push('/finance');
+            case 5: 
+                //求职招聘
+                _this.$router.push('/employment');
             break;
         }
       }
@@ -458,7 +458,7 @@
   }
 /*首页banner 图片*/
 .banners img {
-    width: 375px;
+    width: 100%;
     height: 150px;
 }
 

@@ -346,15 +346,16 @@
                 }
              }
              
-         }
+     }
   }
 
   .forums-list {
-           flex: 1;
-           overflow: auto;
-           .forums-box {
-               padding: 5px 8px;
-           }
+        flex: 1;
+        overflow: auto;
+        background: #FCFCFC;
+        .forums-box {
+            padding: 5px 8px;
+        }
   }
   .itme-wrap {
        min-height: 3.5rem;

@@ -111,6 +111,12 @@ module.exports = {
             path: '/finance',
             component: 'pages/finance/index.vue'
         },
+        {
+            //求职招聘employment
+            name: 'employment',
+            path: '/employment',
+            component: 'pages/employment/index.vue'
+        }
 
     ]
 }
