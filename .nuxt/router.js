@@ -8,6 +8,7 @@ const _7dba8faf = () => interopDefault(import('..\\pages\\company.vue' /* webpac
 const _c310245c = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages_contact" */))
 const _f5ba6fe2 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
 const _2e57cac8 = () => interopDefault(import('..\\pages\\edit.vue' /* webpackChunkName: "pages_edit" */))
+const _1eee9b14 = () => interopDefault(import('..\\pages\\finance\\index.vue' /* webpackChunkName: "pages_finance_index" */))
 const _37f7459c = () => interopDefault(import('..\\pages\\findPassword.vue' /* webpackChunkName: "pages_findPassword" */))
 const _4d146128 = () => interopDefault(import('..\\pages\\info.vue' /* webpackChunkName: "pages_info" */))
 const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
@@ -115,6 +116,10 @@ export function createRouter() {
       path: "/edit",
       component: _2e57cac8,
       name: "edit"
+    }, {
+      path: "/finance",
+      component: _1eee9b14,
+      name: "finance"
     }, {
       path: "/findPassword",
       component: _37f7459c,

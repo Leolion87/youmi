@@ -286,6 +286,14 @@
                 //行业新闻
                 _this.$router.push('/news');
             break;
+            case 4: 
+                //融资总包
+                _this.$router.push('/finance');
+            break;
+            case 4: 
+                //融资总包
+                _this.$router.push('/finance');
+            break;
         }
       }
     },
@@ -305,7 +313,7 @@
   #main {
       width:100%;
       overflow:auto;
-      top:4rem;
+      top:3rem;
       position:absolute;
       z-index:10;
       bottom:2rem;

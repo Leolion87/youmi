@@ -8,10 +8,10 @@
                 
             </Col>
             <Col span="12" class-name='ym-logo'>
-               <img src="~/assets/images/logo.png" style='height:3rem;'>
+               <img src="~/assets/images/logo.png" style='height:2rem;'>
             </Col>
             <Col span="6" class-name='ym-search'>
-                <Icon type="ios-search" size='30' @click.stop='indexSearch'></Icon>
+                <Icon type="ios-search" size='20' @click.stop='indexSearch'></Icon>
             </Col>
         </Row>
 
@@ -40,7 +40,7 @@
 <style lang='scss' scoped>
   header {
       width:100%;
-      height: 4rem;
+      height: 3rem;
       padding: 0.5rem;
       line-height:3rem;
       background:#2d8cf0;
@@ -53,11 +53,11 @@
           // align-items:  flex-start;
           cursor:pointer;
           .avatar img{
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
             text-align: center;
-            border-radius: 100%;
+            border-radius: 5px;
             cursor: pointer;
           }
       }
@@ -66,6 +66,7 @@
       }
       .ym-search{
           text-align: right;
+          line-height: 2rem;
       }
   }
 </style>

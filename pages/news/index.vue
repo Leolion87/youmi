@@ -14,23 +14,22 @@
                 <div class='itme-wrap' v-for='(item,$index) in rencentAnswer' :key='$index'>
                     <!-- 一张图片 -->
                     <div class='item-inner'  v-if='item.images.length == 1'>
-                        <div class='item-l'>
-                            <h6>
-                                {{item.title}}
-                            </h6>
-                            <div class='item-des'>
-                               <div class='post-read'> 
-                                   <div class='name'>{{item.name}}</div>
-                                   <div class='read'>{{item.read}}阅读</div>
-                               </div>
-                               <div class='post-time'>
-                                   {{item.time}}
-                               </div>
+                        <h6>
+                            {{item.title | substr}}
+                            <a href="#" v-if="item.title.length > 100"> 全部</a>
+                        </h6>
+                        <div class="imgage-box">
+                            <img :src='item.images[0].src' style='width:6.5rem;height: 5rem;'>
+                        </div>
+                        <div class='item-des'>
+                            <div class='post-read'>
+                                <div class='name'>{{item.name}}</div>
+                                <div class='read'>{{item.read}}阅读</div>
                             </div>
-                        </div> 
-                        <div class='item-r'>
-                            <img :src='item.images[0].src' style='width:100%;height: 5rem;'>
-                        </div> 
+                            <div class='post-time'>
+                                {{item.time}}
+                            </div>
+                        </div>
                     </div>
                     <!-- 没有图片 -->
                     <div class='item-no-img'  v-if='item.images.length == 0'>
@@ -71,7 +70,6 @@
                     </div>
                 </div>
             </div>
-            
         </section>
     </div>
 </template>
@@ -81,16 +79,49 @@
             return {
                 rencentAnswer: [
                     {
-                        title: '各位大神，求借一份实验中学高三十班的物理笔记，买也行',
+                        title: '经济发展势头强劲，文化发展精彩无限。要充分绽放江西独特的人文之美，文化之韵，就必须走出具有时代特色、江西特点的文化发展新路，笔者以为，这其中最紧要的是正确处理文化提升和经济发展的关系，大力走融合发展之路。一方面，要“眼睛向内”，着力于整理、挖掘、发展江西自身的文化本色',
                         time: '2019-02-01',
                         name: 'liqiang',
                         read: 1009,
                         images: [
-                            {src:'http://pic.app.0550.com/_20190508105150_5cd244468c7bc.jpg',title:'1',alt: '1'},
+                            {src:'http://pic.bbs.0550.com/forum/201905/08/194339m88lcmyf31fb13ck.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'},
                         ]
                     },
                     {
-                        title: '新房源发布测试问问企鹅委屈二位',
+                        title: '滁州八中附近，一辆大货车侧翻，满车啤酒洒了一地！后续：环卫工人清理现场',
+                        time: '2019-04-08',
+                        name: '会飞',
+                        read: 1009,
+                        images: [
+                            {src:'http://pic.bbs.0550.com/forum/201905/08/113428sfwbwh2h952hrxwt.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'},
+                            {src:'http://pic.bbs.0550.com/forum/201905/08/113429r2lmi8o4dko6696d.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'},
+                            {src:'http://pic.app.0550.com/_20190509095435_5cd3885ba63ef.jpg',title:'1',alt: '1'},
+                        ]
+                    },
+                    {
+                        title: '好奇！除了芜湖最有好感的是哪个城市？估计很多人说南京！',
+                        time: '2019-02-01',
+                        name: '朱先生',
+                        read: 1009,
+                        images: [
+                            {src:'http://pic.bbs.0550.com/forum/201905/08/161141scwmzl0wcowegwe7.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'},
+                            {src:'http://pic.bbs.0550.com/forum/201905/08/161142j4fze3o8ecxg8e5c.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'},
+                            {src:'http://pic.bbs.0550.com/forum/201905/08/161142iph70khkp3047ff7.jpg?imageView2/1/w/452/h/348/q/100',title:'1',alt: '1'},
+                        ]
+                    },
+                    {
+                        title: '用flex实现上下固定高度,中间自适应的页面布局',
+                        time: '2019-02-01',
+                        name: 'liqiang',
+                        read: 1009,
+                        images: [
+                            {src:'http://pic.app.0550.com/_20190508111314_5cd2494a75f73.jpg',title:'1',alt: '1'},
+                            {src:'http://pic.app.0550.com/_20190508111314_5cd2494a2b11a.jpg',title:'1',alt: '1'},
+                            {src:'http://pic.app.0550.com/_20190509110416_5cd398b0c58aa.png',title:'1',alt: '1'},
+                        ]
+                    },
+                    {
+                        title: '爸爸带孩子在外面玩，跟丢了孩子也不说，也不找，真可怕',
                         time: '2019-04-01',
                         name: '刘二',
                         read: 5,
@@ -111,7 +142,7 @@
                         images: [
                             {src:'http://pic.app.0550.com/_20190508111314_5cd2494a75f73.jpg',title:'1',alt: '1'},
                             {src:'http://pic.app.0550.com/_20190508111314_5cd2494a2b11a.jpg',title:'1',alt: '1'},
-                            {src:'http://pic.app.0550.com/_20190508111314_5cd2494a2b11a.jpg',title:'1',alt: '1'},
+                            {src:'http://pic.app.0550.com/_20190509110416_5cd398b0c58aa.png',title:'1',alt: '1'},
                         ]
                     },
                     {
@@ -120,7 +151,7 @@
                         name: 'liqiang',
                         read: 1009,
                         images: [
-                            {src:'http://pic.app.0550.com/_20190508105150_5cd244468c7bc.jpg',title:'1',alt: '1'},
+                            {src:'http://pic.app.0550.com/_20190508114012_5cd24f9c7d21c.png',title:'1',alt: '1'},
                         ]
                     },
                     {
@@ -143,9 +174,9 @@
                         name: 'liqiang',
                         read: 1009,
                         images: [
-                            {src:'http://pic.app.0550.com/_20190501153321_5cc94bc13f176.png',title:'1',alt: '1'},
-                            {src:'http://pic.app.0550.com/_20190501153321_5cc94bc13f176.png',title:'1',alt: '1'},
-                            {src:'http://pic.app.0550.com/_20190501153321_5cc94bc13f176.png',title:'1',alt: '1'},
+                            {src:'http://pic.app.0550.com/_20190509110416_5cd398b042b3b.png',title:'1',alt: '1'},
+                            {src:'http://pic.app.0550.com/_20190508114012_5cd24f9c4dc54.png',title:'1',alt: '1'},
+                            {src:'http://pic.app.0550.com/_20190508114012_5cd24f9c7d21c.png',title:'1',alt: '1'},
                         ]
                     },
                     {
@@ -228,6 +259,16 @@
         },
         components:{
 
+        },
+        filters: {
+            substr: function(value) {
+                if(value.length > 100){
+                    return value.substr(0, 60)+'...';
+                }else {
+                    return value;
+                }
+
+            }
         }
     }
 </script>
@@ -274,9 +315,17 @@
    .itme-wrap {
        min-height: 3.5rem;
        border-bottom: 1px solid #eee;
+       h6{
+           font-size: 1rem;
+       }
        .item-inner {
            display: flex;
            padding: 5px 8px;
+           flex-direction: column;
+           justify-content: space-between;
+           .imgage-box {
+               padding: 5px;
+           }
            .item-l{
               flex:1;
               display: flex;
@@ -290,7 +339,7 @@
            }
        }
        .item-no-img {
-           height: 3.5rem;
+           height: 5.5rem;
            padding: 5px 8px;
 
            display: flex;

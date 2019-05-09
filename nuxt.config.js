@@ -8,7 +8,7 @@ module.exports = {
             { hid: 'keywords', name: 'keywords', content: '新房圈-找渠道,找分销,首选新房圈-专业新房渠道对接平台' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: './assets/images/favicon.ico' }
+            { rel: 'icon', type: 'image/x-icon', href: '/assets/images/favicon.ico' }
         ]
     },
     build: {
@@ -105,6 +105,12 @@ module.exports = {
             name: 'news',
             path: '',
             component: 'pages/news/index.vue'
-        }
+        },
+        {//融资总包
+            name: 'finance',
+            path: '/finance',
+            component: 'pages/finance/index.vue'
+        },
+
     ]
 }
