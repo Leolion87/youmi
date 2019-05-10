@@ -7,11 +7,11 @@
         <Row class-name='top-items'>
             <Col span='6'>
                 <img src='http://pic.app.0550.com/_20180627152452_5b333bc476458.png'>
-                <span>项目找总包</span>
+                <span>项目找总代</span>
              </Col>
             <Col span='6'>
                 <img src='http://pic.app.0550.com/_20180627152452_5b333bc476458.png'>
-                <span>总包找项目</span>
+                <span>总代找项目</span>
             </Col>
             <Col span='6'>
                 <img src='http://pic.app.0550.com/_20180627152452_5b333bc476458.png'>
@@ -19,7 +19,7 @@
             </Col>
             <Col span='6'>
                 <img src='http://pic.app.0550.com/_20180627152452_5b333bc476458.png'>
-                <span>总包找二级</span>
+                <span>二级渠道</span>
             </Col>
         </Row>
       </div>

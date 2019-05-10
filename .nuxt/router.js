@@ -11,7 +11,7 @@ const _2e57cac8 = () => interopDefault(import('..\\pages\\edit.vue' /* webpackCh
 const _d94cf3d0 = () => interopDefault(import('..\\pages\\employment\\index.vue' /* webpackChunkName: "pages_employment_index" */))
 const _1eee9b14 = () => interopDefault(import('..\\pages\\finance\\index.vue' /* webpackChunkName: "pages_finance_index" */))
 const _37f7459c = () => interopDefault(import('..\\pages\\findPassword.vue' /* webpackChunkName: "pages_findPassword" */))
-const _4d146128 = () => interopDefault(import('..\\pages\\info.vue' /* webpackChunkName: "pages_info" */))
+const _71849396 = () => interopDefault(import('..\\pages\\info\\index.vue' /* webpackChunkName: "pages_info_index" */))
 const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
 const _affe29ca = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
 const _377b9451 = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */))
@@ -131,7 +131,7 @@ export function createRouter() {
       name: "findPassword"
     }, {
       path: "/info",
-      component: _4d146128,
+      component: _71849396,
       name: "info"
     }, {
       path: "/list",

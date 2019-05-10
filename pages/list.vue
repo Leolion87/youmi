@@ -169,7 +169,7 @@
    </div>
 </template>
 <script>
-import vFooter from '~/components/footer.vue';
+  import vFooter from '~/components/footer.vue';
  export default {
     data(){
          return {

@@ -1,6 +1,6 @@
 module.exports = {
     head: {
-        titleTemplate: '新房圈-找渠道,找分销,首选新房圈-专业新房渠道对接平台',
+        titleTemplate: '新房圈',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -84,7 +84,7 @@ module.exports = {
         {
             path:'/info',
             name:'info',
-            component:'pages/info.vue',
+            component:'pages/info/index.vue',
         },
         {//编辑资料
             path: '/edit',

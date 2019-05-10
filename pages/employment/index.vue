@@ -24,7 +24,7 @@
                 </CarouselItem>
             </Carousel>
         </div>
-        <Row class-name='forums'>
+        <!-- <Row class-name='forums'>
             <Col span='8' class-name='active'>
                 <span>最新回复</span>
             </Col>
@@ -34,7 +34,56 @@
             <Col span='8'>
                 <span>精华热贴</span>
             </Col>
-        </Row>
+        </Row> -->
+        <div class='sort'>
+            <Row>
+                <Col span="6">
+                    <Cascader :data="data" @on-change="handleChange">
+                        {{ text }} <Icon type="md-arrow-dropdown" />
+                    </Cascader>
+                </Col>
+                <Col span="6">
+                    <Dropdown>
+                        <span>
+                            薪酬
+                            <Icon type="md-arrow-dropdown" />
+                        </span>
+                        <DropdownMenu slot="list">
+                            <DropdownItem>3000以下</DropdownItem>
+                            <DropdownItem>3000-5000</DropdownItem>
+                            <DropdownItem>5000-8000</DropdownItem>
+                            <DropdownItem>8000-12000</DropdownItem>
+                            <DropdownItem>12000-15000</DropdownItem>
+                            <DropdownItem>15000-20000</DropdownItem>
+                            <DropdownItem>20000-25000</DropdownItem>
+                            <DropdownItem>25000-30000</DropdownItem>
+                            <DropdownItem>30000-40000</DropdownItem>
+                            <DropdownItem>40000-50000</DropdownItem>
+                            <DropdownItem>50000以上</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Col>
+                <Col span="6">
+                    <Dropdown>
+                        <span>
+                            公司性质
+                            <Icon type="md-arrow-dropdown" />
+                        </span>
+                        <DropdownMenu slot="list">
+                            <DropdownItem>分销公司</DropdownItem>
+                            <DropdownItem>总代公司</DropdownItem>
+                            <DropdownItem>中介门店</DropdownItem>
+                            <DropdownItem>开发商</DropdownItem>
+                            <DropdownItem>其他</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Col>
+                <Col span="6" class-name='more-sort'>
+                   <span>更多</span>
+                   <Icon type="md-arrow-dropdown" />
+                </Col>
+            </Row>
+        </div>
         <div class='isTopForums-box'>
             <Row class-name='isTopForums' 
                  v-for='(item,$index) in isTopForums' 
@@ -154,11 +203,61 @@
                     isTop: 1,
                     title: 'V苏州金保护地产 (苏州/昆山)招聘市场'
                   }
-                ]
+                ],
+                text: '区域',
+                data: [
+                  {
+                    value: 'beijing',
+                    label: '北京',
+                    children: [
+                        {
+                            value: 'gugong',
+                            label: '故宫'
+                        },
+                        {
+                            value: 'tiantan',
+                            label: '天坛'
+                        },
+                        {
+                            value: 'wangfujing',
+                            label: '王府井'
+                        }
+                    ]
+                  }, 
+                  {
+                    value: 'jiangsu',
+                    label: '江苏',
+                    children: [
+                        {
+                            value: 'nanjing',
+                            label: '南京',
+                            children: [
+                                {
+                                    value: 'fuzimiao',
+                                    label: '夫子庙',
+                                }
+                            ]
+                        },
+                        {
+                            value: 'suzhou',
+                            label: '苏州',
+                            children: [
+                                {
+                                    value: 'zhuozhengyuan',
+                                    label: '拙政园',
+                                },
+                                {
+                                    value: 'shizilin',
+                                    label: '狮子林',
+                                }
+                            ]
+                        }
+                    ],
+                  }],
             }
         },
         methods: {
-
+            handleChange(){}
         },
         components:{
 
@@ -166,7 +265,7 @@
     }
 </script>
 <style lang='scss' scoped>
-
+  
   .employment {
       height: 100%;
       width: 100%;
@@ -200,7 +299,7 @@
              
     }
   }
-
+   
   .isTopForums-box{
       .isTopForums {
           padding: 5px 8px;
@@ -222,13 +321,13 @@
       background: #fff;
       .list {
           padding: 5px 8px;
-          height: 4rem;
+          height: 4.5rem;
       }
       .post-read {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          width: 6rem;
+          width: 8rem;
           padding: 0.5rem 0;
 
           color: #464c5b;
@@ -249,13 +348,17 @@
             justify-content: space-between;
           }
           .forum-title {
-            //   h5{
-            //       color:#17233d;
-            //       font-size: 1rem;
-            //   }
+              h5{
+                  color:#17233d;
+                  font-size: 1rem;
+                  font-weight: normal;
+              }
           }
       }
   }
-
+  .sort {
+    padding: 5px 8px;
+    text-align: center;
+  }
 </style>
 

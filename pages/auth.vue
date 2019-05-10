@@ -259,8 +259,6 @@
             font-size: 1rem;
         }
     }
-
-
     .demo-upload-list{
         display: inline-block;
         width: 60px;
@@ -297,7 +295,6 @@
         cursor: pointer;
         margin: 0 2px;
     }
-
 
     .auth-content .item-title{
         line-height: 32px;

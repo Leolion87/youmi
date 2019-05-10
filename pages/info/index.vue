@@ -169,10 +169,11 @@ import vHeader from '~/components/cheader.vue';
         .c-avatar img{
             width: 50px;
             height: 50px;
+            border-radius: 4px;
             line-height: 50px;
             text-align: center;
-            border-radius: 100%;
             cursor: pointer;
+
         }
         .edit-label{
             color: #808695;
