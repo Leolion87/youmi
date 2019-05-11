@@ -12,7 +12,7 @@
             <Col span="6" class-name='ym-search'>
                 <!-- <Icon type="ios-search" size='30'></Icon> -->
                 <Icon type="md-settings" size='30'/>
-
+              
             </Col>
         </Row>
 

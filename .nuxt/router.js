@@ -14,9 +14,12 @@ const _37f7459c = () => interopDefault(import('..\\pages\\findPassword.vue' /* w
 const _71849396 = () => interopDefault(import('..\\pages\\info\\index.vue' /* webpackChunkName: "pages_info_index" */))
 const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
 const _affe29ca = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
+const _4f98c122 = () => interopDefault(import('..\\pages\\msg\\index.vue' /* webpackChunkName: "pages_msg_index" */))
 const _377b9451 = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */))
+const _0b81d464 = () => interopDefault(import('..\\pages\\post\\index.vue' /* webpackChunkName: "pages_post_index" */))
 const _fd9ed83e = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
 const _cee2dc34 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
+const _41dd1752 = () => interopDefault(import('..\\pages\\status\\index.vue' /* webpackChunkName: "pages_status_index" */))
 const _434d6ff8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
@@ -142,9 +145,17 @@ export function createRouter() {
       component: _affe29ca,
       name: "login"
     }, {
+      path: "/msg",
+      component: _4f98c122,
+      name: "msg"
+    }, {
       path: "/news",
       component: _377b9451,
       name: "news"
+    }, {
+      path: "/post",
+      component: _0b81d464,
+      name: "post"
     }, {
       path: "/register",
       component: _fd9ed83e,
@@ -153,6 +164,10 @@ export function createRouter() {
       path: "/search",
       component: _cee2dc34,
       name: "search"
+    }, {
+      path: "/status",
+      component: _41dd1752,
+      name: "status"
     }, {
       path: "/",
       component: _434d6ff8,

@@ -1,45 +1,21 @@
 <template>
    <footer class='footer'>
         <Row class='nav'>
-            <!-- <Col span="6">
-                 <a href="http://www.bengbuxx.com" class='f-white'>首页</a>
-            </Col>
-            <Col span="6" class='index-cates'>
-            <Poptip v-model='showCatesPopTip'>
-                <a href='javascript:void(0);' class='txt' @click.stop='showCatesPopTipFunc'>分类信息</a>
-                <div class="api" slot="content" width='150'>
-                    <div style='color: #495060;'>
-                        <ul class='cate-item'>
-                            <li v-for='(item,index) in cates' 
-                                @click.stop='chooseCate(item)'
-                                :class="{active: activeCateId == item.id}"
-                                :key='index'>
-                                <a href="javascript:void(0);">
-                                    {{item.name}}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </Poptip>
-            </Col>
-            <Col span="6">
-            <Poptip content="content" >
-                <a href="http://www.bengbuxx.com" style="color:#fff;">广告服务</a>
-            </Poptip>
-            </Col>
-            <Col span="6">
-                <div @click.stop='choose3'>个人信息</div>
-            </Col> -->
-
-
             <div class='navs'>
-                首页
+                 <nuxt-link to="/">首页</nuxt-link>
             </div>
-            <div class='index'>动态</div>
-            <div class='index'>发布</div>
-            <div class='index'>消息</div>
-            <div class='index'>我的</div>
+            <div class='index'>
+              <nuxt-link to="/status">动态</nuxt-link>
+            </div>
+            <div class='index'>
+              <nuxt-link to="/post">发布</nuxt-link>
+            </div>
+            <div class='index'>
+              <nuxt-link to="/msg">消息</nuxt-link>
+           </div>
+            <div class='index'>
+              <nuxt-link to="/info">我的</nuxt-link>
+            </div>
         </Row>
    </footer>
 </template>
@@ -139,6 +115,9 @@
     div {
       flex: 1;
     }
+    a {
+      color:#fff;
+    }
   }
 
   .navs {
@@ -163,6 +142,7 @@
           line-height: .3rem;
       }
     }
+    
   }
 </style>
 

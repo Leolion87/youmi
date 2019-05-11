@@ -82,8 +82,8 @@ module.exports = {
             component: 'pages/findPassword.vue'
         },
         {
-            path:'/info',
             name:'info',
+            path:'/info',
             component:'pages/info/index.vue',
         },
         {//编辑资料
@@ -116,6 +116,24 @@ module.exports = {
             name: 'employment',
             path: '/employment',
             component: 'pages/employment/index.vue'
+        },
+        {
+            //消息
+            name: 'msg',
+            path: '/msg',
+            component: 'pages/msg/index.vue'
+        },
+        {
+            //发布
+            name: 'post',
+            path: '/post',
+            component: 'pages/post/index.vue'
+        },
+        {
+            //动态
+            name: 'status',
+            path: '/status',
+            component: 'pages/status/index.vue'
         }
 
     ]
