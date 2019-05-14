@@ -2,24 +2,25 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _82bd2582 = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages_about" */))
-const _24393b66 = () => interopDefault(import('..\\pages\\auth.vue' /* webpackChunkName: "pages_auth" */))
 const _7dba8faf = () => interopDefault(import('..\\pages\\company.vue' /* webpackChunkName: "pages_company" */))
-const _c310245c = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages_contact" */))
+const _4a5691f3 = () => interopDefault(import('..\\pages\\company\\index.vue' /* webpackChunkName: "pages_company_index" */))
 const _f5ba6fe2 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
-const _2e57cac8 = () => interopDefault(import('..\\pages\\edit.vue' /* webpackChunkName: "pages_edit" */))
 const _d94cf3d0 = () => interopDefault(import('..\\pages\\employment\\index.vue' /* webpackChunkName: "pages_employment_index" */))
 const _1eee9b14 = () => interopDefault(import('..\\pages\\finance\\index.vue' /* webpackChunkName: "pages_finance_index" */))
 const _37f7459c = () => interopDefault(import('..\\pages\\findPassword.vue' /* webpackChunkName: "pages_findPassword" */))
 const _71849396 = () => interopDefault(import('..\\pages\\info\\index.vue' /* webpackChunkName: "pages_info_index" */))
 const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
-const _affe29ca = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
 const _4f98c122 = () => interopDefault(import('..\\pages\\msg\\index.vue' /* webpackChunkName: "pages_msg_index" */))
 const _377b9451 = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */))
 const _0b81d464 = () => interopDefault(import('..\\pages\\post\\index.vue' /* webpackChunkName: "pages_post_index" */))
-const _fd9ed83e = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages_register" */))
 const _cee2dc34 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
 const _41dd1752 = () => interopDefault(import('..\\pages\\status\\index.vue' /* webpackChunkName: "pages_status_index" */))
+const _51ccb8d1 = () => interopDefault(import('..\\pages\\info\\about.vue' /* webpackChunkName: "pages_info_about" */))
+const _7b8d3594 = () => interopDefault(import('..\\pages\\info\\auth.vue' /* webpackChunkName: "pages_info_auth" */))
+const _13fe9ce4 = () => interopDefault(import('..\\pages\\info\\contact.vue' /* webpackChunkName: "pages_info_contact" */))
+const _f4a87614 = () => interopDefault(import('..\\pages\\info\\edit.vue' /* webpackChunkName: "pages_info_edit" */))
+const _3b2c36ad = () => interopDefault(import('..\\pages\\info\\login.vue' /* webpackChunkName: "pages_info_login" */))
+const _870071e2 = () => interopDefault(import('..\\pages\\info\\register.vue' /* webpackChunkName: "pages_info_register" */))
 const _434d6ff8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
@@ -97,29 +98,17 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
-      path: "/about",
-      component: _82bd2582,
-      name: "about"
-    }, {
-      path: "/auth",
-      component: _24393b66,
-      name: "auth"
-    }, {
       path: "/company",
       component: _7dba8faf,
-      name: "company"
-    }, {
-      path: "/contact",
-      component: _c310245c,
-      name: "contact"
+      children: [{
+        path: "",
+        component: _4a5691f3,
+        name: "company"
+      }]
     }, {
       path: "/detail",
       component: _f5ba6fe2,
       name: "detail"
-    }, {
-      path: "/edit",
-      component: _2e57cac8,
-      name: "edit"
     }, {
       path: "/employment",
       component: _d94cf3d0,
@@ -141,10 +130,6 @@ export function createRouter() {
       component: _1f0fa35c,
       name: "list"
     }, {
-      path: "/login",
-      component: _affe29ca,
-      name: "login"
-    }, {
       path: "/msg",
       component: _4f98c122,
       name: "msg"
@@ -157,10 +142,6 @@ export function createRouter() {
       component: _0b81d464,
       name: "post"
     }, {
-      path: "/register",
-      component: _fd9ed83e,
-      name: "register"
-    }, {
       path: "/search",
       component: _cee2dc34,
       name: "search"
@@ -168,6 +149,30 @@ export function createRouter() {
       path: "/status",
       component: _41dd1752,
       name: "status"
+    }, {
+      path: "/info/about",
+      component: _51ccb8d1,
+      name: "info-about"
+    }, {
+      path: "/info/auth",
+      component: _7b8d3594,
+      name: "info-auth"
+    }, {
+      path: "/info/contact",
+      component: _13fe9ce4,
+      name: "info-contact"
+    }, {
+      path: "/info/edit",
+      component: _f4a87614,
+      name: "info-edit"
+    }, {
+      path: "/info/login",
+      component: _3b2c36ad,
+      name: "info-login"
+    }, {
+      path: "/info/register",
+      component: _870071e2,
+      name: "info-register"
     }, {
       path: "/",
       component: _434d6ff8,

@@ -45,7 +45,19 @@
                 <Col span="6">
                     <Dropdown>
                         <span>
-                            薪酬
+                            性质
+                            <Icon type="md-arrow-dropdown" />
+                        </span>
+                        <DropdownMenu slot="list">
+                            <DropdownItem>招聘</DropdownItem>
+                            <DropdownItem>求职</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Col>
+                <Col span="6">
+                    <Dropdown>
+                        <span>
+                            薪资
                             <Icon type="md-arrow-dropdown" />
                         </span>
                         <DropdownMenu slot="list">
@@ -63,21 +75,6 @@
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col span="6">
-                    <Dropdown>
-                        <span>
-                            公司性质
-                            <Icon type="md-arrow-dropdown" />
-                        </span>
-                        <DropdownMenu slot="list">
-                            <DropdownItem>分销公司</DropdownItem>
-                            <DropdownItem>总代公司</DropdownItem>
-                            <DropdownItem>中介门店</DropdownItem>
-                            <DropdownItem>开发商</DropdownItem>
-                            <DropdownItem>其他</DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
-                </Col>
                 <Col span="6" class-name='more-sort'>
                    <span>更多</span>
                    <Icon type="md-arrow-dropdown" />
@@ -89,10 +86,10 @@
                  v-for='(item,$index) in isTopForums' 
                  :key='$index'>
                 <Col span='24' class-name='forum-item'>
-                    <Col span='2' class-name='isTopTxt'>
+                    <Col span='3' class-name='isTopTxt'>
                         置顶
                     </Col>
-                    <Col span='21' offset='1'>
+                    <Col span='20' offset='1'>
                     {{item.title}}
                     </Col>
                 </Col>

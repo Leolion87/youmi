@@ -46,11 +46,7 @@ module.exports = {
             path: '/search',
             component: 'pages/search.vue'
         },
-        {
-            name: 'login',
-            path: '/login',
-            component: 'pages/login.vue'
-        },
+        
         {//新房楼盘
             name: 'list',
             path: '/list',
@@ -61,16 +57,7 @@ module.exports = {
             path: '/detai',
             component: 'pages/detail.vue'
         },
-        {
-            path: '/register',
-            name: 'register',
-            component: 'pages/register.vue'
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: 'pages/about.vue'
-        },
+        
         {
             path: '/contact',
             name: 'contact',
@@ -81,25 +68,45 @@ module.exports = {
             name: 'findPassword',
             component: 'pages/findPassword.vue'
         },
-        {
+        {//编辑资料
             name:'info',
             path:'/info',
             component:'pages/info/index.vue',
         },
-        {//编辑资料
+        {
             path: '/edit',
             name: 'edit',
-            component: 'pages/edit.vue'
+            component: 'pages/info/edit.vue'
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: 'pages/info/register.vue'
+        },
+        {
+            name: 'login',
+            path: '/login',
+            component: 'pages/info/login.vue'
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: 'pages/info/about.vue'
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: 'pages/info/contact.vue'
         },
         {//企业认证
             name: 'auth',
             path: '/auth',
-            component: 'pages/auth.vue'
+            component: 'pages/info/auth.vue'
         },
         {//经纪公司
             name: 'company',
             path: '/company',
-            component: 'pages/company.vue'
+            component: 'pages/company/index.vue'
         },
         {//行业新闻
             name: 'news',

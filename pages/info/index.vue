@@ -145,7 +145,7 @@ import vHeader from '~/components/cheader.vue';
     },
     methods: {
       editData(){
-          this.$router.push('/edit');
+          this.$router.push('/info/edit');
       }
 
     },

@@ -217,7 +217,7 @@
               },
               { id: 4,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '融资总包'
+                name: '融资总代'
               },
               { id: 5,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
@@ -225,11 +225,11 @@
               },
               { id: 6,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '新盘推荐'
+                name: '大宗市场'
               },
               { id: 7,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '同行交友'
+                name: '需求大厅'
               },
               { id: 8,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
@@ -237,7 +237,7 @@
               },
               { id: 9,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '需求大厅'
+                name: '同行交友'
               },
               { id: 0,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
