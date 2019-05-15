@@ -79,6 +79,11 @@ module.exports = {
             component: 'pages/info/edit.vue'
         },
         {
+            path: '/changeName',
+            name: 'changeName',
+            component: 'pages/info/changeName.vue'
+        },
+        {
             path: '/register',
             name: 'register',
             component: 'pages/info/register.vue'

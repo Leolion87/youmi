@@ -17,6 +17,7 @@ const _cee2dc34 = () => interopDefault(import('..\\pages\\search.vue' /* webpack
 const _41dd1752 = () => interopDefault(import('..\\pages\\status\\index.vue' /* webpackChunkName: "pages_status_index" */))
 const _51ccb8d1 = () => interopDefault(import('..\\pages\\info\\about.vue' /* webpackChunkName: "pages_info_about" */))
 const _7b8d3594 = () => interopDefault(import('..\\pages\\info\\auth.vue' /* webpackChunkName: "pages_info_auth" */))
+const _53fb21c7 = () => interopDefault(import('..\\pages\\info\\changeName.vue' /* webpackChunkName: "pages_info_changeName" */))
 const _13fe9ce4 = () => interopDefault(import('..\\pages\\info\\contact.vue' /* webpackChunkName: "pages_info_contact" */))
 const _f4a87614 = () => interopDefault(import('..\\pages\\info\\edit.vue' /* webpackChunkName: "pages_info_edit" */))
 const _3b2c36ad = () => interopDefault(import('..\\pages\\info\\login.vue' /* webpackChunkName: "pages_info_login" */))
@@ -157,6 +158,10 @@ export function createRouter() {
       path: "/info/auth",
       component: _7b8d3594,
       name: "info-auth"
+    }, {
+      path: "/info/changeName",
+      component: _53fb21c7,
+      name: "info-changeName"
     }, {
       path: "/info/contact",
       component: _13fe9ce4,
