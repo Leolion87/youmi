@@ -28,7 +28,6 @@ service.interceptors.response.use(
 export default {
     // post function
     post (url, data) {
-        console.log('post request url', url)
         return service({
             method: 'post',
             url,
@@ -37,7 +36,6 @@ export default {
     },
     // get function
     get (url, data) {
-        console.log('get request url', url)
         return service({
             method: 'get',
             url,
@@ -46,7 +44,6 @@ export default {
     },
     // delete function
     delete (url, data) {
-        console.log('delete request url', url)
         return service({
             method: 'delete',
             url,

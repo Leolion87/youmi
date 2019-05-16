@@ -7,7 +7,6 @@ const _4a5691f3 = () => interopDefault(import('..\\pages\\company\\index.vue' /*
 const _f5ba6fe2 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
 const _d94cf3d0 = () => interopDefault(import('..\\pages\\employment\\index.vue' /* webpackChunkName: "pages_employment_index" */))
 const _1eee9b14 = () => interopDefault(import('..\\pages\\finance\\index.vue' /* webpackChunkName: "pages_finance_index" */))
-const _37f7459c = () => interopDefault(import('..\\pages\\findPassword.vue' /* webpackChunkName: "pages_findPassword" */))
 const _71849396 = () => interopDefault(import('..\\pages\\info\\index.vue' /* webpackChunkName: "pages_info_index" */))
 const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
 const _4f98c122 = () => interopDefault(import('..\\pages\\msg\\index.vue' /* webpackChunkName: "pages_msg_index" */))
@@ -20,6 +19,7 @@ const _7b8d3594 = () => interopDefault(import('..\\pages\\info\\auth.vue' /* web
 const _53fb21c7 = () => interopDefault(import('..\\pages\\info\\changeName.vue' /* webpackChunkName: "pages_info_changeName" */))
 const _13fe9ce4 = () => interopDefault(import('..\\pages\\info\\contact.vue' /* webpackChunkName: "pages_info_contact" */))
 const _f4a87614 = () => interopDefault(import('..\\pages\\info\\edit.vue' /* webpackChunkName: "pages_info_edit" */))
+const _9deb6d40 = () => interopDefault(import('..\\pages\\info\\findPassword.vue' /* webpackChunkName: "pages_info_findPassword" */))
 const _3b2c36ad = () => interopDefault(import('..\\pages\\info\\login.vue' /* webpackChunkName: "pages_info_login" */))
 const _870071e2 = () => interopDefault(import('..\\pages\\info\\register.vue' /* webpackChunkName: "pages_info_register" */))
 const _434d6ff8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
@@ -93,7 +93,7 @@ const scrollBehavior = function (to, from, savedPosition) {
 export function createRouter() {
   return new Router({
     mode: 'history',
-    base: '/',
+    base: '/wap/',
     linkActiveClass: 'nuxt-link-active',
     linkExactActiveClass: 'nuxt-link-exact-active',
     scrollBehavior,
@@ -118,10 +118,6 @@ export function createRouter() {
       path: "/finance",
       component: _1eee9b14,
       name: "finance"
-    }, {
-      path: "/findPassword",
-      component: _37f7459c,
-      name: "findPassword"
     }, {
       path: "/info",
       component: _71849396,
@@ -170,6 +166,10 @@ export function createRouter() {
       path: "/info/edit",
       component: _f4a87614,
       name: "info-edit"
+    }, {
+      path: "/info/findPassword",
+      component: _9deb6d40,
+      name: "info-findPassword"
     }, {
       path: "/info/login",
       component: _3b2c36ad,

@@ -18,13 +18,19 @@ module.exports = {
         '@nuxtjs/proxy'
     ],
     axios: {
-        proxy: true
+        proxy: true,
+        prefix: '/wapApi/',
+        credentials: true
     },
     proxy: {
-        // '/api': {
-        //     target: 'http:127.0.0.1:9090',
-        //     pathRewrite: { '^/api': '' }
-        // }
+        '/wapApi/': { 
+            target: 'http://127.0.0.1/',//这个网站是开源的可以请求到数据的
+            // pathRewrite: {
+            //    '^/wapApi/': '/',
+            //    changeOrigin:false
+            // }    
+        }
+
     },
     plugins: [
         { src: '~plugins/iview.js', ssr: true }
@@ -46,7 +52,6 @@ module.exports = {
             path: '/search',
             component: 'pages/search.vue'
         },
-        
         {//新房楼盘
             name: 'list',
             path: '/list',
@@ -66,7 +71,7 @@ module.exports = {
         {
             path: '/findPassword',
             name: 'findPassword',
-            component: 'pages/findPassword.vue'
+            component: 'pages/info/findPassword.vue'
         },
         {//编辑资料
             name:'info',

@@ -1,5 +1,8 @@
 <template>
   <div class="register">
+    <div class='top'>
+      <img src="~/assets/images/logo.png" style='height:2rem;'>
+    </div>
     <Row type="flex" justify="center">
       <Col span="20" style="max-width: 400px;">
         <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
@@ -97,7 +100,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang='scss' scoped>
 h1,
 h2 {
   font-weight: normal;
@@ -115,6 +118,10 @@ a {
 }
 
 .register {
-  padding: 8px;
+  .top {
+    text-align: center;
+    padding: 1rem 0.5rem;
+    background: #2d8cf0;
+  }
 }
 </style>

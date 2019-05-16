@@ -41,7 +41,7 @@
         </div>
         <div class='link white'>
             <Row>
-                <Col span="8">
+                <Col span="8" >
                     <a href=''>
                         <font>每日签到</font>
                         <span>天天签到送花贝</span>
@@ -61,6 +61,8 @@
                 </Col>
             </Row>
         </div>
+
+        
         <div class='news white'>
             <ul class='index-news-list'>
                 <li v-for='(item,$index) in news' :key='$index'>
@@ -295,6 +297,15 @@
                 _this.$router.push('/employment');
             break;
         }
+      },
+      haha(){
+        let params = {
+            "name": 15255575891,
+            "pwd": "123456"
+        };
+        this.$axios.post("index.php/user/login/register",params).then(res=>{
+            console.log(res)
+        })
       }
     },
     components:{
