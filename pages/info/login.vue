@@ -6,24 +6,43 @@
 
     <Row type="flex" justify="center" class="login-box">
       <Col span="20" style="max-width: 400px;">
-        <Form ref="formInline" :model="formInline" :rules="ruleInline" style="min-height:300px;">
-        <FormItem prop="user">
-          <Input type="text" v-model="formInline.user" placeholder="Username">
-            <Icon type="ios-person-outline" slot="prepend"></Icon>
-          </Input>
-        </FormItem>
-        <FormItem prop="password">
-          <Input type="password" v-model="formInline.password" placeholder="Password">
-            <Icon type="ios-lock-outline" slot="prepend"></Icon>
-          </Input>
-        </FormItem>
-           <p style="text-align: left;margin-left: 10px;margin：3px">忘记密码?
-             <a href="javascript:void(0);" @click.stop='findPassWord'>找回</a>
-           </p>
-        <FormItem style="margin-top: 10px;">
-          <Button type="primary" @click="login('formInline')">登录</Button>
-          <Button @click.stop="toRegister"  style="margin-left: 8px">注册</Button>
-        </FormItem>
+          <Form ref="formInline" :model="formInline" :rules="ruleInline" style="min-height:300px;">
+          <FormItem prop="phone" v-if='showPhoneItem == true'>
+            <Input type="text" v-model="formInline.phone" placeholder="手机号">
+              <Icon type="ios-person-outline" slot="prepend"></Icon>
+            </Input>
+          </FormItem>
+          <FormItem prop="userName" v-else>
+            <Input type="text" v-model="formInline.userName" placeholder="用户名">
+              <Icon type="ios-person-outline" slot="prepend"></Icon>
+            </Input>
+
+          </FormItem>
+          <FormItem prop="password">
+            <Input type="password" v-model="formInline.password" placeholder="密码">
+              <Icon type="ios-lock-outline" slot="prepend"></Icon>
+            </Input>
+          </FormItem>
+
+          <Row>
+              <Col span="8">
+                  <p style="text-align: left;margin-left: 10px;margin：3px">忘记密码?
+              <a href="javascript:void(0);" @click.stop='findPassWord'>找回</a>
+            </p>
+              </Col>
+              <Col span="12" offset="4">
+                  <p style="text-align: left;margin-left: 10px;margin：3px">
+              其他方式登录:  
+              <a v-if="showPhoneItem == true" href="javascript:void(0);" @click.stop='useNameLogin'>用户名登录</a>
+              <a v-else href="javascript:void(0);" @click.stop='usePhoneLogin'>手机号登录</a>
+            </p>
+              </Col>
+          </Row>
+
+          <FormItem style="margin-top: 10px;">
+            <Button type="primary"  @click="login('formInline')">登录</Button>
+            <Button @click.stop="toRegister"  style="margin-left: 8px">注册</Button>
+          </FormItem>
       </Form>
       </Col>
     </Row>
@@ -36,18 +55,23 @@ export default {
   data () {
     return {
       formInline: {
-        user: '',
+        phone: '',
+        userName: '',
         password: ''
       },
       ruleInline: {
-        user: [
+        phone: [
+          { required: true, message: '请填写手机号', trigger: 'blur' }
+        ],
+        userName: [
           { required: true, message: '请填写用户名', trigger: 'blur' }
         ],
         password: [
           { required: true, message: '请填写密码.', trigger: 'blur' },
-          { type: 'string', min: 6, message: '密码长度不能少于6位', trigger: 'blur' }
+          { type: 'string', min: 6,max:8, message: '密码长度6-8位,且以两个英文字母开头。', trigger: 'blur' }
         ]
-      }
+      },
+      showPhoneItem: true
     }
   },
   methods:{
@@ -81,6 +105,12 @@ export default {
     },
     findPassWord(){
       this.$router.push('/info/findPassword');
+    },
+    useNameLogin(){
+      this.showPhoneItem = false;
+    },
+    usePhoneLogin(){
+      this.showPhoneItem = true;
     }
   }
 }

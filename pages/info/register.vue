@@ -17,10 +17,11 @@
             <Input v-model="formValidate.name" placeholder="请输入用户名"></Input>
           </FormItem>
           <FormItem label="密码" prop="password">
-            <Input type="password" v-model="formValidate.password" placeholder="请输入密码"></Input>
+            <Input type="password" v-model="formValidate.password" 
+                  placeholder="密码由首位2个英文字母和6个数字组成."></Input>
           </FormItem>
-          <FormItem label="确认密码" prop="repassword">
-            <Input v-model="formValidate.repassword" placeholder="请再次输入密码"></Input>
+          <FormItem label="手机号" prop="phone">
+            <Input v-model="formValidate.phone" placeholder="请输入手机号码"></Input>
           </FormItem>
           <FormItem label="验证码" prop="varify_code">
                <Input search enter-button="发送验证码"
@@ -41,13 +42,26 @@
 export default {
   name: "register",
   data() {
+    //密码验证规则： 2个字母+6个数字
+    // const password = (rule, value, callback) => {
+    //   let reg = /^[a-zA-Z]{2}\d{6}$/; 
+    //   if (value === '') {
+    //     callback(new Error('密码不能为空'));
+    //   }else if(!reg.test(value)){
+    //     callback(new Error('密码由首位2个英文字母和6个数字组成.'));
+    //   }else {
+    //     return ;
+    //   }
+    // };
+
+
     return {
       formValidate: {
         name: "",
         user_type: 3,
         varify_code: "",
         password: "",
-        repassword: "",
+        phone: "",
         interest: [],
         date: "",
         time: "",
@@ -56,13 +70,16 @@ export default {
       ruleValidate: {
         name: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
         password: [
-          { required: true, message: "密码不能为空", trigger: "blur" }
+          // { required: true,validator: password, trigger: "blur"}
+          {required: true,message: '密码不能为空',trigger: 'blur'},
+          {type: 'string',pattern: /^[a-zA-Z]{2}\d{6}$/,message: '密码由首位2个英文字母和6个数字组成.',trigger: 'blur'}
         ],
-        repassword: [
-          { required: true, message: "密码不能为空", trigger: "blur" }
+        phone: [
+          { required: true, len: 11,message: "请输入正确的手机号", trigger: "blur" },
+          { type: 'number', message: '请输入合法的手机号',trigger: "blur" } 
         ],
         varify_code: [
-          { required: true, message: "密码不能为空", trigger: "blur" }
+          { required: true, message: "密码不能为空", trigger: "blur" },
         ],
         interest: [
           {
@@ -99,7 +116,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped>
 h1,
 h2 {

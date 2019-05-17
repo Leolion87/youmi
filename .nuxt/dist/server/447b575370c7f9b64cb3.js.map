@@ -1,1 +1,0 @@
-{"version":3,"file":"447b575370c7f9b64cb3.js","sources":["webpack:///./pages/info/contact.vue"],"sourcesContent":["var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:\"contact\"},[])}\nvar staticRenderFns = []\n\nexport { render, staticRenderFns }"],"mappings":"AAAA","sourceRoot":""}

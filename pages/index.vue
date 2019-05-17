@@ -243,7 +243,7 @@
               },
               { id: 0,
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
-                name: '全部模块'
+                name: '全部分类'
               }
           ]
       }
