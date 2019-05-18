@@ -4,48 +4,80 @@
       <img src="~/assets/images/logo.png" style='height:2rem;'>
     </div>
 
+
+    
     <Row type="flex" justify="center" class="login-box">
       <Col span="20" style="max-width: 400px;">
-          <Form ref="formInline" :model="formInline" :rules="ruleInline" style="min-height:300px;">
-          <FormItem prop="phone" v-if='showPhoneItem == true'>
-            <Input type="text" v-model="formInline.phone" placeholder="手机号">
-              <Icon type="ios-person-outline" slot="prepend"></Icon>
-            </Input>
-          </FormItem>
-          <FormItem prop="userName" v-else>
-            <Input type="text" v-model="formInline.userName" placeholder="用户名">
-              <Icon type="ios-person-outline" slot="prepend"></Icon>
-            </Input>
+          <Form ref="formInline" 
+                :model="formInline" 
+                :rules="ruleInline"
+                style="min-height:300px;">
+            <!-- 用户名方式登录 -->
+            <FormItem prop="userName" v-if=" showPhoneItem == false">
+              <Input type="text" v-model="formInline.phone" placeholder="用户名">
+                <Icon type="ios-person-outline" slot="prepend"></Icon>
+              </Input>
+            </FormItem>
+            <FormItem prop="password" v-if=" showPhoneItem == false">
+              <Input type="password" v-model="formInline.password" placeholder="密码">
+                <Icon type="ios-lock-outline" slot="prepend"></Icon>
+              </Input>
+            </FormItem>
 
-          </FormItem>
-          <FormItem prop="password">
-            <Input type="password" v-model="formInline.password" placeholder="密码">
-              <Icon type="ios-lock-outline" slot="prepend"></Icon>
-            </Input>
-          </FormItem>
+            <!-- 手机验证码登录 -->
+            <FormItem prop="phone" v-if=" showPhoneItem == true">
+              <Row type="flex" justify="center">
+                <Col span="18">
+                     <Input v-model="formInline.phone" 
+                            placeholder="手机号" 
+                            style="width: 300px" />
+                </Col>
+                <Col span="4">
+                    <Button type="primary">发送验证码</Button>
+                </Col>
+              </Row>
 
-          <Row>
-              <Col span="8">
-                  <p style="text-align: left;margin-left: 10px;margin：3px">忘记密码?
-              <a href="javascript:void(0);" @click.stop='findPassWord'>找回</a>
-            </p>
-              </Col>
-              <Col span="12" offset="4">
-                  <p style="text-align: left;margin-left: 10px;margin：3px">
-              其他方式登录:  
-              <a v-if="showPhoneItem == true" href="javascript:void(0);" @click.stop='useNameLogin'>用户名登录</a>
-              <a v-else href="javascript:void(0);" @click.stop='usePhoneLogin'>手机号登录</a>
-            </p>
-              </Col>
-          </Row>
+              <Row type="flex" justify="center" class-name='margin-top10'>
+                <Col span="18">
+                    <Input v-model="verify_code" 
+                            placeholder="手机验证码" 
+                            style="width: 300px" />
+                </Col>
+                <Col span="4">
+                    <Button type="primary">登录</Button>
+                </Col>
+                
+              </Row>
 
-          <FormItem style="margin-top: 10px;">
-            <Button type="primary"  @click="login('formInline')">登录</Button>
-            <Button @click.stop="toRegister"  style="margin-left: 8px">注册</Button>
-          </FormItem>
-      </Form>
+              <!-- <Input type="text" v-model="formInline.userName" placeholder="手机号">
+                <Icon type="ios-person-outline" slot="prepend"></Icon>
+              </Input> -->
+            </FormItem>
+
+
+            <Row>
+                <Col span="8">
+                    <p  style="text-align: left;margin-left: 10px;margin：3px">忘记密码?
+                      <a  href="javascript:void(0);" @click.stop='findPassWord'>找回</a>
+                    </p>
+                </Col>
+                <Col span="12" offset="4">
+                    <p style="text-align: left;margin-left: 10px;margin：3px">
+                      其他方式登录:  
+                      <a v-if="showPhoneItem == true" href="javascript:void(0);" @click.stop='useNameLogin'>用户名登录</a>
+                      <a v-else href="javascript:void(0);" @click.stop='usePhoneLogin'>手机号登录</a>
+                    </p>
+                </Col>
+            </Row>
+
+            <FormItem style="margin-top: 10px;" v-if='showPhoneItem == false'>
+              <Button type="primary"  @click="login('formInline')">登&nbsp;&nbsp;录</Button>
+              <Button @click.stop="toRegister"  style="margin-left: 8px">注册</Button>
+            </FormItem>
+          </Form>
       </Col>
     </Row>
+
   </div>
 </template>
 
@@ -71,7 +103,9 @@ export default {
           { type: 'string', min: 6,max:8, message: '密码长度6-8位,且以两个英文字母开头。', trigger: 'blur' }
         ]
       },
-      showPhoneItem: true
+      showPhoneItem: true,
+      verify_code: ''
+
     }
   },
   methods:{
