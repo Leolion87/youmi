@@ -4,8 +4,6 @@
       <img src="~/assets/images/logo.png" style='height:2rem;'>
     </div>
 
-
-    
     <Row type="flex" justify="center" class="login-box">
       <Col span="20" style="max-width: 400px;">
           <Form ref="formInline" 
@@ -101,14 +99,12 @@ export default {
       },
       showPhoneItem: true,
       verify_code: ''
-
     }
   },
   methods:{
     //密码登录
     login(name) {
       this.$refs[name].validate((valid) => {
-        console.log(1)
         if (valid) {
           let userName = this.formInline.userName;
           let userPwd = this.formInline.password;
@@ -117,18 +113,28 @@ export default {
             name: userName,
             pwd: userPwd
           };
-          console.log(this.$axios);
-    
-          
-        api.getAreas().then(res=>{
-            console.log(res)
-        })
+
+          api.userLogin(userParmas).then(res=>{
+            if(res.code == 200){
+              console.log(res.data);
+              this.$Message.success(res.msg);
+              this.$router.push('/');
+
+              sessionStorage.setItem('userName',res.data.user_name);
+              sessionStorage.setItem('userPwd',res.data.user_pwd);
+              this.CAHNGEUSER_INFO(res.data);
+            }else {
+              this.$Message.error(res.msg);
+            };
+          },err=>{
+            console.log(err);
+          });
 
 
 
           
         } else {
-          this.$Message.error('Fail!');
+          this.$Message.error('请输入有效的用户名和密码！');
         }
       })
     },
@@ -144,6 +150,7 @@ export default {
     usePhoneLogin(){
       this.showPhoneItem = true;
     },
+    ...mapMutations(['CAHNGEUSER_INFO']),
     ...mapActions(['userLogin'])
   }
 }

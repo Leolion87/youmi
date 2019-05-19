@@ -5,12 +5,13 @@
         <Row class-name='user-info'>
             <Col span='4'>
                 <div class='c-avatar'>
-                    <img src='https://i.loli.net/2017/08/21/599a521472424.jpg'>
+                    <img v-if="userInfo.avatar" :src='defaultAvatar'>
+                    <img v-else :src='defaultAvatar'>
                 </div>
             </Col>
             <Col span='18'>
                 <Col span='24' class-name='edit-level'>
-                    <span class='user-name'>火焰</span>
+                    <span class='user-name'>{{userInfo.user_name}}</span>
                     <span class='info-label level'>LV1</span>
                     <span class="info-label tag">举人</span>
                 </Col>
@@ -95,59 +96,109 @@
       </div>
 
       <v-footer></v-footer>
+
+
+      <!-- 退出登录 -->
+      <Modal v-model="keepLogin" width="280" @on-cancel='cancelQuit'>
+        <p slot="header" style="color:#f60;text-align:center">
+            <Icon type="ios-information-circle"></Icon>
+            <span>温馨提示：</span>
+        </p>
+        <div style="text-align:center">
+            <p>退出登录之后,个人信息查看和修改</p>
+            <p>是否需要退出?</p>
+        </div>
+        <div slot="footer">
+            <Button type="error" size="large" 
+                    long 
+                    :loading="showLoginLoading"
+                    @click.stop='sureQuit'>退出登录</Button>
+        </div>
+    </Modal>
+
+
    </div>
 </template>
 <script>
+
+import {mapState,mapActions,mapMutations} from 'vuex';
 import vFooter from '~/components/footer.vue';
 import vHeader from '~/components/cheader.vue';
  export default {
     data(){
          return {
-             kinds:[
-              {
+          defaultAvatar: 'http://www.xinfangquan.cn/images/default_avatar.jpg',
+        //   keepLogin: false,
+          kinds:[
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '新房'
-              },
-              {
+                },
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '求职招聘'
-              },
-              {
+                },
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '同城交友'
-              },
-              {
+                },
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '新房'
-              },
-              {
+                },
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '求职招聘'
-              },
-              {
+                },
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '同城交友'
-              },
-              {
+                },
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '新房'
-              },
-              {
+                },
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '求职招聘'
-              },
-              {
+                },
+                {
                 imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
                 name: '同城交友'
-              }
+                }
           ]
          }
+    },
+    computed: {
+      keepLogin:{
+        get:function(){
+            return this.$store.state.keepLogin;
+        },
+        set:function(){} 
+      },
+      ...mapState(['userInfo','showLoginLoading'])
     },
     methods: {
       editData(){
           this.$router.push('/info/edit');
-      }
+      },
+      quitModal(){
+        this.CHANGECURRENT_LOGIN(true);
+        // this.$router.push('/');
+      },
+      cancelQuit(){
+        this.CHANGECURRENT_LOGIN(false);
+      },
+      sureQuit(){
+        this.QUITlOGIN_LOADING(true);
+        this.CHANGECURRENT_LOGIN(false);
+        //clear data
+        this.CAHNGEUSER_INFO({});
+        sessionStorage.clear();
 
+        this.$router.push('/');
+      },
+      ...mapMutations(['CHANGECURRENT_LOGIN','QUITlOGIN_LOADING','CAHNGEUSER_INFO'])
     },
     components:{
         vFooter,

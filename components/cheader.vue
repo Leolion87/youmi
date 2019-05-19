@@ -11,7 +11,7 @@
             </Col>
             <Col span="6" class-name='ym-search'>
                 <!-- <Icon type="ios-search" size='30'></Icon> -->
-                <Icon type="md-settings" size='30'/>
+                <Icon type="md-settings" @click.stop='quitModal' size='30'/>
               
             </Col>
         </Row>
@@ -19,6 +19,7 @@
     </header>
 </template>
 <script>
+ import {mapState,mapActions,mapMutations} from 'vuex';
  export default {
     data(){
          return {
@@ -29,7 +30,13 @@
       clickAvatar(){
         console.log("test")
         this.$router.push('/info');
-      }
+      },
+      quitModal(){
+        this.CHANGECURRENT_LOGIN(true);
+        this.QUITlOGIN_LOADING(false)
+        // this.$router.push('/');
+      },
+      ...mapMutations(['CHANGECURRENT_LOGIN','QUITlOGIN_LOADING'])
     },
     components:{
      

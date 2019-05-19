@@ -1,4 +1,5 @@
 export default {
-    counter: 1,
-    isPhone: false
+    userInfo: {},
+    keepLogin: false,//退出登录,
+    showLoginLoading: false
   }

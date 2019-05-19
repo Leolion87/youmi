@@ -18,7 +18,6 @@ module.exports = {
     ],
     plugins: [
         { src: '~plugins/iview.js', ssr: true },
-        // { src: '~plugins/axios.js', ssr: true }
     ],
     css: [
         '~assets/css/reset.css'

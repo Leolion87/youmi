@@ -112,7 +112,11 @@ export default {
             pwd: userPwd
           };
           this.$axios.post("index.php/user/login/login",params).then(res=>{
-            console.log(res);
+            if(res.code == 200){
+              this.$Message.error(res.message);
+            }else {
+              this.$Message.error(res.message);
+            }
           },err=>{
             console.log(err);
           });

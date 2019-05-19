@@ -3,7 +3,8 @@
         <Row type="flex" justify="space-between">
             <Col span="6" class-name='ym-avatar'>
                <div class='avatar' @click='clickAvatar'>
-                 <img src='https://i.loli.net/2017/08/21/599a521472424.jpg'>
+                 <img v-if="userInfo.avatar" :src="userInfo.avatar">
+                 <img v-else :src="defaultAvatar">
                </div>
                 
             </Col>
@@ -18,15 +19,24 @@
     </header>
 </template>
 <script>
+import {mapState,mapActions,mapMutations} from 'vuex';
  export default {
     data(){
-         return {
-            
-         }
+      return {
+        defaultAvatar: 'http://www.xinfangquan.cn/images/default_avatar.jpg'
+      }
+    },
+    computed: {
+      ...mapState(['userInfo'])
     },
     methods: {
       clickAvatar(){
-        this.$router.push('/info');
+        let userName = sessionStorage.getItem('userName');
+        if(userName) {
+          this.$router.push('/info');
+        }else {
+          this.$router.push('/info/login');
+        }
       },
       indexSearch(){
         this.$router.push('/search');

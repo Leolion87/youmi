@@ -40,7 +40,7 @@ export function fetch (url, params) {
 }
 export default {
   //登录
-  getAreas (params) {
+  userLogin (params) {
     return fetch('/wapApi/index.php/user/login/login', params)
   }
 }
