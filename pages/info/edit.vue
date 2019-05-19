@@ -9,9 +9,10 @@
                     <Col span="8" style='text-align:left;'>头像:</Col>
                     <Col span="6" offset="10" style='text-align:right;'>
                         <div class='avatar-box'>
-                            <img :src='userInfo.thumbnail'>
+                            <img v-if="userInfo.thumbnail" :src='userInfo.thumbnail'>
+                            <img v-else :src='defaultAvatar'>
                             <Icon type="ios-arrow-forward" class='arrow'/>
-                             <input type="file" id="avatarFile"/>
+                            <input type="file" id="avatarFile" @change='uploadAvatar($event)'/>
                         </div>
                         
                     </Col>
@@ -19,21 +20,30 @@
                 <Col span='24' class-name='info-item'>
                     <Col span="8"  style='text-align:left;'>用户名:</Col>
                     <Col span="6" offset="10" style='text-align:right;'>
-                      <span class='nick-name'>{{userInfo.nickName}}</span>
+                      <span class='nick-name'>
+                          昵称
+                          <!-- {{userInfo.nickName}} -->
+                      </span>
                       <Icon type="ios-arrow-forward" />
                     </Col>
                 </Col>
                 <Col span='24' class-name='info-item'>
                     <Col span="8" style='text-align:left;'>手机:</Col>
                     <Col span="6" offset="10" style='text-align:right;'>
-                        <span>{{userInfo.phone}}</span>
+                        <span>
+                            电话
+                            <!-- {{userInfo.phone}} -->
+                        </span>
                         <Icon type="ios-arrow-forward" />
                     </Col>
                 </Col>
                 <Col span='24' class-name='info-item-sex'>
                     <Col span="8" style='text-align:left;'>性别:</Col>
                     <Col span="6" offset="10" style='text-align:right;'>
-                        <span>{{userInfo.sex}}</span>
+                        <span>
+                            性别
+                            <!-- {{userInfo.sex}} -->
+                        </span>
                         <Icon type="ios-arrow-forward" />
                     </Col>
                 </Col>
@@ -43,7 +53,10 @@
                 <Col span='24' class-name='info-item'>
                     <Col span="8" style='text-align:left;'>生日:</Col>
                     <Col span="6" offset="10" style='text-align:right;'>
-                        <span>{{userInfo.birthday}}</span>
+                        <span>
+                            生日
+                            <!-- {{userInfo.birthday}} -->
+                        </span>
                         <Icon type="ios-arrow-forward" />
                     </Col>
                 </Col>
@@ -59,7 +72,10 @@
                 <Col span='24'>
                     <Col span="8" style='text-align:left;'>注册时间:</Col>
                     <Col span="6" offset="10" style='text-align:right;'>
-                        <span>{{userInfo.registerDate}}</span>
+                        <span>
+                            注册时间
+                            <!-- {{userInfo.registerDate}} -->
+                        </span>
                         <Icon type="ios-arrow-forward" />
                     </Col>
                 </Col>
@@ -85,25 +101,47 @@
     </div>
 </template>
 <script>
+    import api from '@/service/api.js'
+    import {mapState,mapActions,mapMutations} from 'vuex';
     export default {
         data(){
             return {
                 value5: '',
-                userInfo: {
-                   nickName: '火焰',
-                   phone: '18900000000',
-                   sex: '男',
-                   birthday: '1992-01-01',
-                   signature: '没有个性签名，就是好签名',
-                   thumbnail: 'https://i.loli.net/2017/08/21/599a521472424.jpg',
-                   registerDate: '2019-09-01',
-                   isCertification: 0
-                }
+                // userInfo: {
+                //    nickName: '火焰',
+                //    phone: '18900000000',
+                //    sex: '男',
+                //    birthday: '1992-01-01',
+                //    signature: '没有个性签名，就是好签名',
+                //    thumbnail: 'https://i.loli.net/2017/08/21/599a521472424.jpg',
+                //    registerDate: '2019-09-01',
+                //    isCertification: 0
+                // },
+
+                tempavatar: '',
+                defaultAvatar: 'http://www.xinfangquan.cn/images/default_avatar.jpg',
             }
+        },
+        computed: {
+           ...mapState(['userInfo'])
         },
         methods: {
             goToAuth(){
                 this.$router.push('/info/auth');
+            },
+            //上传头像
+            uploadAvatar(e){
+                let file = e.target.files[0];
+                
+                let formData = new FormData(); 
+				formData.append('file', file); 
+				// formData.append('user_id', 6);
+
+                api.uploadAvatar(formData).then(res => {
+                    console.log(res)
+                },err=>{
+                    console.log(err)
+                })
             }
         },
         components:{

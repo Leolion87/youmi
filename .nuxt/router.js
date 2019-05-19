@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _7dba8faf = () => interopDefault(import('..\\pages\\company.vue' /* webpackChunkName: "pages_company" */))
 const _4a5691f3 = () => interopDefault(import('..\\pages\\company\\index.vue' /* webpackChunkName: "pages_company_index" */))
 const _f5ba6fe2 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
 const _d94cf3d0 = () => interopDefault(import('..\\pages\\employment\\index.vue' /* webpackChunkName: "pages_employment_index" */))
@@ -100,12 +99,8 @@ export function createRouter() {
 
     routes: [{
       path: "/company",
-      component: _7dba8faf,
-      children: [{
-        path: "",
-        component: _4a5691f3,
-        name: "company"
-      }]
+      component: _4a5691f3,
+      name: "company"
     }, {
       path: "/detail",
       component: _f5ba6fe2,
