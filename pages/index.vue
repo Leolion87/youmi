@@ -104,7 +104,7 @@
   </div>
 </template>
 <script>
-  import service from '~/service/index.js';
+//   import service from '~/service/index.js';
   import vFooter from '~/components/footer.vue';
   import vHeader from '~/components/header.vue';
   export default {

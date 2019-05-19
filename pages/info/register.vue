@@ -68,7 +68,9 @@ export default {
         desc: ""
       },
       ruleValidate: {
-        name: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
+        name: [
+          { required: true, max: 10,message: "用户名不能为空", trigger: "blur" }
+        ],
         password: [
           // { required: true,validator: password, trigger: "blur"}
           {required: true,message: '密码不能为空',trigger: 'blur'},
@@ -76,7 +78,6 @@ export default {
         ],
         phone: [
           { required: true, len: 11,message: "请输入正确的手机号", trigger: "blur" },
-          { type: 'number', message: '请输入合法的手机号',trigger: "blur" } 
         ],
         varify_code: [
           { required: true, message: "密码不能为空", trigger: "blur" },
@@ -103,6 +104,20 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
+          let userName = this.formInline.user;
+          let userPwd = this.formInline.password;
+
+          let userInfo = {
+            name: userName,
+            pwd: userPwd
+          };
+          this.$axios.post("index.php/user/login/login",params).then(res=>{
+            console.log(res);
+          },err=>{
+            console.log(err);
+          });
+
+
           this.$Message.success("Success!");
         } else {
           this.$Message.error("Fail!");

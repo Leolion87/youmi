@@ -14,7 +14,7 @@
                 style="min-height:300px;">
             <!-- 用户名方式登录 -->
             <FormItem prop="userName" v-if=" showPhoneItem == false">
-              <Input type="text" v-model="formInline.phone" placeholder="用户名">
+              <Input type="text" v-model="formInline.userName" placeholder="用户名">
                 <Icon type="ios-person-outline" slot="prepend"></Icon>
               </Input>
             </FormItem>
@@ -48,12 +48,7 @@
                 </Col>
                 
               </Row>
-
-              <!-- <Input type="text" v-model="formInline.userName" placeholder="手机号">
-                <Icon type="ios-person-outline" slot="prepend"></Icon>
-              </Input> -->
             </FormItem>
-
 
             <Row>
                 <Col span="8">
@@ -69,7 +64,6 @@
                     </p>
                 </Col>
             </Row>
-
             <FormItem style="margin-top: 10px;" v-if='showPhoneItem == false'>
               <Button type="primary"  @click="login('formInline')">登&nbsp;&nbsp;录</Button>
               <Button @click.stop="toRegister"  style="margin-left: 8px">注册</Button>
@@ -82,6 +76,8 @@
 </template>
 
 <script>
+import api from '@/service/api.js'
+import {mapState,mapActions,mapMutations} from 'vuex';
 export default {
   name: 'login',
   data () {
@@ -109,26 +105,28 @@ export default {
     }
   },
   methods:{
+    //密码登录
     login(name) {
       this.$refs[name].validate((valid) => {
+        console.log(1)
         if (valid) {
-          let userName = this.formInline.user;
+          let userName = this.formInline.userName;
           let userPwd = this.formInline.password;
 
           let userParmas = {
             name: userName,
             pwd: userPwd
           };
-          this.$axios.post("index.php/user/login/register",params).then(res=>{
-            console.log(res);
-          },err=>{
-            console.log(err);
-          });
+          console.log(this.$axios);
+    
+          
+        api.getAreas().then(res=>{
+            console.log(res)
+        })
 
 
 
-
-          this.$Message.success('Success!');
+          
         } else {
           this.$Message.error('Fail!');
         }
@@ -145,7 +143,8 @@ export default {
     },
     usePhoneLogin(){
       this.showPhoneItem = true;
-    }
+    },
+    ...mapActions(['userLogin'])
   }
 }
 </script>

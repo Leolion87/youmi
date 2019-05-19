@@ -15,25 +15,10 @@ module.exports = {
     },
     modules: [
         '@nuxtjs/axios',
-        '@nuxtjs/proxy'
     ],
-    axios: {
-        proxy: true,
-        prefix: '/wapApi/',
-        credentials: true
-    },
-    proxy: {
-        '/wapApi/': { 
-            target: 'http://127.0.0.1/',//这个网站是开源的可以请求到数据的
-            // pathRewrite: {
-            //    '^/wapApi/': '/',
-            //    changeOrigin:false
-            // }    
-        }
-
-    },
     plugins: [
-        { src: '~plugins/iview.js', ssr: true }
+        { src: '~plugins/iview.js', ssr: true },
+        // { src: '~plugins/axios.js', ssr: true }
     ],
     css: [
         '~assets/css/reset.css'
