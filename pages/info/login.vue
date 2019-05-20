@@ -129,9 +129,6 @@ export default {
           },err=>{
             console.log(err);
           });
-
-
-
           
         } else {
           this.$Message.error('请输入有效的用户名和密码！');

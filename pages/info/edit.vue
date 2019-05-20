@@ -135,7 +135,7 @@
                 
                 let formData = new FormData(); 
 				formData.append('file', file); 
-				// formData.append('user_id', 6);
+				formData.append('user_id', 6);
 
                 api.uploadAvatar(formData).then(res => {
                     console.log(res)

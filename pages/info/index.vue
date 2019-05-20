@@ -37,18 +37,18 @@
         </Row>
         <Row class-name='score-box'>
             <Card :bordered="false" style='height: 60px;text-align: center;'>
-                <Col span='6'>
+                <!-- <Col span='6'>
                     0.00<br>
                     钱包
-                </Col>
-                <Col span='6'>
+                </Col> -->
+                <Col span='8'>
                     0.00<br>
                     金币</Col>
-                <Col span='6'>
+                <Col span='8'>
                     0<br>
                     礼物
                 </Col>
-                <Col span='6'>
+                <Col span='8'>
                     LV1<br>
                     等级
                 </Col>
@@ -115,8 +115,6 @@
                     @click.stop='sureQuit'>退出登录</Button>
         </div>
     </Modal>
-
-
    </div>
 </template>
 <script>
@@ -177,6 +175,9 @@ import vHeader from '~/components/cheader.vue';
         set:function(){} 
       },
       ...mapState(['userInfo','showLoginLoading'])
+    },
+    mounted(){
+        //获取用户信息
     },
     methods: {
       editData(){
