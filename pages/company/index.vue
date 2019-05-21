@@ -191,7 +191,7 @@ import vFooter from '~/components/footer.vue';
                   company: '苏州房天下',
                   scale: '10人以下',//规模
                   tel: '18911223344',
-                  thumbnail: 'http://www.xinfangquan.cn/upload/c1.jpg'
+                  thumbnail: 'http://www.xinfangquan.cn/images/c1.jpg'
                 },
                 { //a href="tel:010-57121655">
                   id: 2,
@@ -206,7 +206,7 @@ import vFooter from '~/components/footer.vue';
                   company: '万科城市花园',
                   scale: '30-50',//规模
                   tel: '0551-2456789',
-                  thumbnail: 'http://www.xinfangquan.cn/upload/c.jpg'
+                  thumbnail: 'http://www.xinfangquan.cn/images/c.jpg'
                 },
                 {
                   id: 3,
@@ -221,7 +221,7 @@ import vFooter from '~/components/footer.vue';
                   company: 'Q房网',
                   scale: '10-50',//规模
                   tel: '021-2456789',
-                  thumbnail: 'http://www.xinfangquan.cn/upload/c1.jpg'
+                  thumbnail: 'http://www.xinfangquan.cn/images/c1.jpg'
                 },
                 {
                   id: 1,
@@ -236,7 +236,7 @@ import vFooter from '~/components/footer.vue';
                   company: '苏州房天下',
                   scale: '10人以下',//规模
                   tel: '18911223344',
-                  thumbnail: 'http://www.xinfangquan.cn/upload/c1.jpg'
+                  thumbnail: 'http://www.xinfangquan.cn/images/c1.jpg'
                 },
                 {
                   id: 2,
@@ -251,7 +251,7 @@ import vFooter from '~/components/footer.vue';
                   company: '万科城市花园',
                   scale: '30-50',//规模
                   tel: '0551-2456789',
-                  thumbnail: 'http://www.xinfangquan.cn/upload/c.jpg'
+                  thumbnail: 'http://www.xinfangquan.cn/images/c.jpg'
                 },
                 {
                   id: 3,
@@ -266,7 +266,7 @@ import vFooter from '~/components/footer.vue';
                   company: 'Q房网',
                   scale: '10-50',//规模
                   tel: '15255575890',
-                  thumbnail: 'http://www.xinfangquan.cn/upload/c.jpg'
+                  thumbnail: 'http://www.xinfangquan.cn/images/c.jpg'
                 },
                 {
                   id: 2,
@@ -281,7 +281,7 @@ import vFooter from '~/components/footer.vue';
                   company: '万科城市花园',
                   scale: '30-50',//规模
                   tel: '0551-2456789',
-                  thumbnail: 'http://www.xinfangquan.cn/upload/c.jpg'
+                  thumbnail: 'http://www.xinfangquan.cn/images/c.jpg'
                 },
                 {
                   id: 3,
@@ -296,7 +296,7 @@ import vFooter from '~/components/footer.vue';
                   company: 'Q房网',
                   scale: '10-50',//规模
                   tel: '021-2456789',
-                  thumbnail: 'http://www.xinfangquan.cn/upload/c.jpg'
+                  thumbnail: 'http://www.xinfangquan.cn/images/c.jpg'
                 }
                
             ]

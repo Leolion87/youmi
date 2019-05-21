@@ -2,7 +2,9 @@
    <footer class='footer'>
         <Row class='nav'>
             <div class='navs'>
-                 <nuxt-link to="/">首页</nuxt-link>
+                <nuxt-link to="/">
+                 首页
+                </nuxt-link>
             </div>
             <div class='index'>
               <nuxt-link to="/status">动态</nuxt-link>

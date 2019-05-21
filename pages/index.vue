@@ -355,7 +355,7 @@
                   }
                   span {
                       color: #222222;
-                      font-size: 0.22rem;
+                      font-size: 0.45rem;
                   }
               }
           }
