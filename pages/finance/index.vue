@@ -2,7 +2,7 @@
     <div class='finance'>
       <div class='top'>
         <div class='add'>
-            <img src='../../assets/images/finace.jpg'>
+            <img src='http://www.xinfangquan.cn/images/banner/f1.jpg'>
         </div>
         <Row class-name='top-items'>
             <Col span='6'>

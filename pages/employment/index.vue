@@ -4,24 +4,15 @@
             <Carousel v-model="loopInitValue" loop autoplay>
                 <CarouselItem>
                     <div class="demo-carousel">
-                        <img src="~/assets/images/1.jpg">
+                        <img src="http://www.xinfangquan.cn/images/banner/zhaopin1.jpg">
                     </div>
                 </CarouselItem>
                 <CarouselItem>
                     <div class="demo-carousel">
-                        <img src="~/assets/images/2.jpg">
+                        <img src="http://www.xinfangquan.cn/images/banner/zhaopin2.jpg">
                     </div>
                 </CarouselItem>
-                <CarouselItem>
-                    <div class="demo-carousel">
-                        <img src="~/assets/images/3.jpg">
-                    </div>
-                </CarouselItem>
-                <CarouselItem>
-                    <div class="demo-carousel">
-                        <img src="~/assets/images/4.jpg">
-                    </div>
-                </CarouselItem>
+                
             </Carousel>
         </div>
         <!-- <Row class-name='forums'>

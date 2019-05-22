@@ -8,22 +8,23 @@
             <Carousel v-model="loopInitValue" loop autoplay>
                 <CarouselItem>
                     <div class="demo-carousel">
-                        <img src="~/assets/images/1.jpg">
+                        <!-- ~/assets/images/1.jpg -->
+                        <img src="http://www.xinfangquan.cn/images/banner/index1.jpg">
                     </div>
                 </CarouselItem>
                 <CarouselItem>
                     <div class="demo-carousel">
-                        <img src="~/assets/images/2.jpg">
+                        <img src="http://www.xinfangquan.cn/images/banner/index2.jpg">
                     </div>
                 </CarouselItem>
                 <CarouselItem>
                     <div class="demo-carousel">
-                        <img src="~/assets/images/3.jpg">
+                        <img src="http://www.xinfangquan.cn/images/banner/index3.jpg">
                     </div>
                 </CarouselItem>
                 <CarouselItem>
                     <div class="demo-carousel">
-                        <img src="~/assets/images/4.jpg">
+                        <img src="http://www.xinfangquan.cn/images/banner/index4.jpg">
                     </div>
                 </CarouselItem>
             </Carousel>
@@ -206,43 +207,43 @@
           activeCateId: 0,
           kinds:[
               { id: 1,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/new_house.png',
                 name: '新房楼盘'
               },
               { id: 2,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/jinji.jpg',
                 name: '经纪公司'
               },
               { id: 3,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/news.png',
                 name: '行业新闻'
               },
               { id: 4,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/rongzi.jpg',
                 name: '融资总代'
               },
               { id: 5,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/qiuzhi.jpg',
                 name: '求职招聘'
               },
               { id: 6,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/tuijian.jpg',
                 name: '大宗市场'
               },
               { id: 7,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/xuqiu.jpg',
                 name: '需求大厅'
               },
               { id: 8,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/baoliao.jpg',
                 name: '行业爆料'
               },
               { id: 9,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/tonghang.jpg',
                 name: '同行交友'
               },
               { id: 0,
-                imageUrl: 'http://pic.app.0550.com/_20180627152452_5b333bc476458.png',
+                imageUrl: 'http://www.xinfangquan.cn/images/all.jpg',
                 name: '全部分类'
               }
           ]
@@ -334,12 +335,12 @@
           .kind {
               font-size: 0px;
               padding-bottom: 0.28rem;
-              height: 135px;
+              height: 145px;
               a {
                   display: block;
                   vertical-align: middle;
                   color: #222222;
-                  font-size: 0rem;
+                  font-size: 1rem;
                   margin-top: 0.5rem;
                   width: 20%;
                   text-align: center;
@@ -355,7 +356,7 @@
                   }
                   span {
                       color: #222222;
-                      font-size: 0.45rem;
+                      font-size: 0.7rem;
                   }
               }
           }

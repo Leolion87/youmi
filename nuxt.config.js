@@ -23,7 +23,7 @@ module.exports = {
         '~assets/css/reset.css'
     ],
     router: {
-        //base: '/wap/'  //打包时使用
+       //base: '/wap/'  //打包时使用
     },
     routes: [
         {
