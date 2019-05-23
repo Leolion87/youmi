@@ -6,8 +6,8 @@ const _4a5691f3 = () => interopDefault(import('..\\pages\\company\\index.vue' /*
 const _f5ba6fe2 = () => interopDefault(import('..\\pages\\detail.vue' /* webpackChunkName: "pages_detail" */))
 const _d94cf3d0 = () => interopDefault(import('..\\pages\\employment\\index.vue' /* webpackChunkName: "pages_employment_index" */))
 const _1eee9b14 = () => interopDefault(import('..\\pages\\finance\\index.vue' /* webpackChunkName: "pages_finance_index" */))
+const _3a087620 = () => interopDefault(import('..\\pages\\house\\index.vue' /* webpackChunkName: "pages_house_index" */))
 const _71849396 = () => interopDefault(import('..\\pages\\info\\index.vue' /* webpackChunkName: "pages_info_index" */))
-const _1f0fa35c = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages_list" */))
 const _4f98c122 = () => interopDefault(import('..\\pages\\msg\\index.vue' /* webpackChunkName: "pages_msg_index" */))
 const _377b9451 = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */))
 const _0b81d464 = () => interopDefault(import('..\\pages\\post\\index.vue' /* webpackChunkName: "pages_post_index" */))
@@ -114,13 +114,13 @@ export function createRouter() {
       component: _1eee9b14,
       name: "finance"
     }, {
+      path: "/house",
+      component: _3a087620,
+      name: "house"
+    }, {
       path: "/info",
       component: _71849396,
       name: "info"
-    }, {
-      path: "/list",
-      component: _1f0fa35c,
-      name: "list"
     }, {
       path: "/msg",
       component: _4f98c122,

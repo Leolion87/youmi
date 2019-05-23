@@ -1,1 +1,0 @@
-{"version":3,"file":"3b26dee9500d4a9e1b66.js","sources":["webpack:///./pages/info/about.vue"],"sourcesContent":["var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:\"about\"},[])}\nvar staticRenderFns = []\n\nexport { render, staticRenderFns }"],"mappings":"AAAA","sourceRoot":""}

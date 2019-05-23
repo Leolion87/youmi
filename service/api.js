@@ -6,7 +6,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 axios.defaults.baseURL = 'http://127.0.0.1:80/';
 // axios.defaults.baseURL = 'http://www.xinfangquan.cn/';
 
-
 // POST传参序列化
 // axios.interceptors.request.use((config) => {
 //   if (config.method === 'post') {

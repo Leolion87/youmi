@@ -56,7 +56,7 @@
       },
       choose1(){
         console.log(3);
-        this.$router.push('/list');
+        this.$router.push('/house');
       },
       showCatesPopTipFunc(){
           console.log("232")
@@ -66,7 +66,6 @@
         this.activeCateId = item.id;
         this.showCatesPopTip = false;
 
-        // this.$router.push('/list');
           window.location.href= item.url;
       },
 

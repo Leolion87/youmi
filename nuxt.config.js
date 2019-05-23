@@ -37,9 +37,9 @@ module.exports = {
             component: 'pages/search.vue'
         },
         {//新房楼盘
-            name: 'list',
-            path: '/list',
-            component: 'pages/list.vue'
+            name: 'house',
+            path: '/house',
+            component: 'pages/house/index.vue'
         },
         {
             name: 'detail',

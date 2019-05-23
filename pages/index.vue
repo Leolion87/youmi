@@ -280,7 +280,7 @@
         switch(item.id) {
             case 1:
                 //新房楼盘
-                _this.$router.push('/list');
+                _this.$router.push('/house');
             break;
             case 2: 
                  _this.$router.push('/company');
@@ -335,7 +335,7 @@
           .kind {
               font-size: 0px;
               padding-bottom: 0.28rem;
-              height: 145px;
+              height: 155px;
               a {
                   display: block;
                   vertical-align: middle;
@@ -347,12 +347,12 @@
                   line-height: 1.22;
                   cursor: pointer;
                   img {
-                      width: 2rem;
-                      height: 2rem;
+                      width: 2.6rem;
+                      height: 2.6rem;
                       display: block;
                       margin-left: auto;
                       margin-right: auto;
-                      margin-bottom: 0.5rem;
+                    //   margin-bottom: 0.2rem;
                   }
                   span {
                       color: #222222;
