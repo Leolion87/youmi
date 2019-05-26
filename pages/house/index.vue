@@ -4,22 +4,15 @@
         <h5>新房圈-新房</h5>
         <div class='xinfang-cate margin-top5 clearfix'>
             <div class='cate-left left'>
-                <span class='active'>全部</span>
-                <span>恒大</span>
-                <span>绿地</span>
-                <span>万科</span>
-                <span>中海</span>
-                <span>融创</span>
-                <span>万达</span>
-                <span>碧桂园</span>
-                <span>金地</span>
-                <span>融创</span>
-                <span>万达</span>
-                <span>碧桂园</span>
-                <span>金地</span>
+                <!-- <span :class="{active: isActive}">全部</span> -->
+                <span v-for='(item,$index) in hotHouse' :key="$index" 
+                      @click.stop='chooseHotHouse(item,$index)'
+                     :class="{active: $index == activeId}">
+                    {{item.hot_house_name}}
+                </span>
             </div>
             <div class='cate-right right'>
-                <Icon type="ios-search-outline" size='20' />查找</div>
+                <Icon type="ios-search-outline" size='20' @click.stop='toSearch'/>查找</div>
         </div>
         <div class='sortby'>
             <Row>
@@ -120,9 +113,9 @@
      </div>
      <div class='content'>
          <div class='total-house'>
-             共有<span class='total-numer'>1000</span>个楼盘
+             共有<span class='total-numer'>{{houses.length}}</span>个楼盘
          </div>
-         <div class='house-list'>
+         <div v-if="houses.length >0" class='house-list'>
              <Row class-name='house' 
                   v-for='(item,$index) in houses' 
                   :class='{isTopHouse: item.isTop == 1}'
@@ -165,116 +158,155 @@
                 </Col>
              </Row>
          </div>
+         <div v-else class='no-house'>
+             没有房产信息了
+         </div>
      </div>
+
+
+
+        <Spin fix v-show='hShowSpin'>
+            <Icon type="ios-loading" size=18 class="demo-spin-icon-load"></Icon>
+            <div>正在加载中...</div>
+        </Spin>
    </div>
 </template>
 <script>
+  import api from '@/service/api.js'
   import vFooter from '~/components/footer.vue';
   import cityData from '~/static/js/area.js';
+  import {mapState,mapActions,mapMutations} from 'vuex';
  export default {
     data(){
          return {
+            project: '',
             text: '区域',
             data: cityData,
             showAllSortByPanel: false,
-            //楼盘列表
-            houses:[
-                {
-                  id: 1,
-                  name: '万科云',
-                  isTop: 1,
-                  isCommission: 1,
-                  price: 8000,
-                  address: '杭州,萧山',
-                  houseType: ['住宅','别墅'],
-                  company: '杭州悠米网络科技有限公司',
-                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
-                },
-                {
-                  id: 2,
-                  name: '碧桂园',
-                  isTop: 1,
-                  isCommission: 1,
-                  price: 8000,
-                  address: '苏州,wu',
-                  houseType: ['住宅','别墅'],
-                  company: '杭州悠米网络科技有限公司',
-                  thumbnail: 'http://pic.app.0550.com/_20190502151222_5cca985630226.jpg'
-                },
-                {
-                  id: 3,
-                  name: '万科云',
-                  isTop: 1,
-                  isCommission: 1,
-                  price: 8000,
-                  address: '杭州,萧山',
-                  houseType: ['住宅','别墅'],
-                  company: '杭州悠米网络科技有限公司',
-                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
-                },
-                {
-                  id: 4,
-                  name: '碧桂园',
-                  isTop: 0,
-                  isCommission: 1,
-                  price: 8000,
-                  address: '苏州,wu',
-                  houseType: ['住宅','别墅'],
-                  company: '杭州悠米网络科技有限公司',
-                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
-                },
-                {
-                  id: 1,
-                  name: '万科云',
-                  isTop: 0,
-                  isCommission: 1,
-                  price: 8000,
-                  address: '杭州,萧山',
-                  houseType: ['住宅','别墅'],
-                  company: '杭州悠米网络科技有限公司',
-                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
-                },
-                {
-                  id: 6,
-                  name: '碧桂园',
-                  isTop: 0,
-                  isCommission: 1,
-                  price: 8000,
-                  address: '苏州,wu',
-                  houseType: ['住宅','别墅'],
-                  company: '杭州悠米网络科技有限公司',
-                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
-                },
-                {
-                  id: 7,
-                  name: '万科云',
-                  isTop: 0,
-                  isCommission: 1,
-                  price: 8000,
-                  address: '杭州,萧山',
-                  houseType: ['住宅','别墅'],
-                  company: '杭州悠米网络科技有限公司',
-                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
-                },
-                {
-                  id: 8,
-                  name: '碧桂园',
-                  isTop: 0,
-                  isCommission: 1,
-                  price: 8000,
-                  address: '苏州,wu',
-                  houseType: ['住宅','别墅'],
-                  company: '杭州悠米网络科技有限公司',
-                  thumbnail: 'http://pic.app.0550.com/_20190502174232_5ccabb889e5ca.png'
-                },
-            ]
+            
+            hotHouse:[],//热门房产
+            isActive: true,
+            activeId: 0
          }
+    },
+    mounted(){
+        this.getHotHouse();
+        this.getNewHouse();
+    },
+    computed: {
+        ...mapState(['houses','hShowSpin'])
     },
     methods: {
         handleChange (value, selectedData) {
                 let txt = selectedData.map(o => o.label).join(', ');
                 this.text = txt.split(',')[0];
-        }
+        },
+        //获取热门房产
+        getHotHouse(){
+            api.getHotHouse().then(res=>{
+                if(res.success){
+                    if(res.data.length ){
+                        let list = res.data;
+                        list.unshift({"hot_house_id":0,"hot_house_name":'全部',"hot_house_sort":0})
+                        this.hotHouse = list;
+                    }else {
+                        this.$Message.warning('还没有添加热门房产');
+                    }
+                }
+            },err=>{
+                console.log(err)
+            });
+        },
+        //获取房产列表
+        getNewHouse(){
+            this.showSpin = true;
+            let params = {
+                page_index: 1,
+                page_size: 30
+            };
+            api.getNewHouse(params).then(res=>{
+              if(res.success) {
+                if(res.data.data && res.data.data.length) {
+                  let temp = [];
+                  let list = res.data.data;
+
+                  list.forEach(item => {
+                    let obj = {
+                        id: item.house_id,
+                        name: item.house_name,
+                        isTop: item.isTop,
+                        isCommission: item.isCommission,
+                        price: item.house_price,
+                        address: item.province + item.city,
+                        houseType: item.house_type.split(','),
+                        company: item.company,
+                        thumbnail: 'http://127.0.0.1'+item.house_banner1
+                    };
+                    temp.push(obj);
+                  });
+                  //更新数据
+                  this.CHANGE_NEWHOUSE(temp);
+                }else {
+                    this.CHANGE_NEWHOUSE([]);
+                };
+                this.showSpin = false;
+              }else {
+                this.$Message.error('参数错误');
+                this.showSpin = false;
+              }
+            },err=>{
+              console.log(err);
+              this.showSpin = false;
+            });
+        },
+        toSearch(){
+          this.$router.push('/house/search');
+        },
+        chooseHotHouse(item,index){
+            this.showSpin = true;
+
+            this.activeId = index;
+            let params = {
+                page_index: 1,
+                page_size: 30,
+                hot_house_id: item.hot_house_id
+            };
+            api.getNewHouse(params).then(res=>{
+              if(res.success) {
+                if(res.data.data && res.data.data.length) {
+                  let temp = [];
+                  let list = res.data.data;
+
+                  list.forEach(item => {
+                    let obj = {
+                        id: item.house_id,
+                        name: item.house_name,
+                        isTop: item.isTop,
+                        isCommission: item.isCommission,
+                        price: item.house_price,
+                        address: item.province + item.city,
+                        houseType: item.house_type.split(','),
+                        company: item.company,
+                        thumbnail: 'http://127.0.0.1'+item.house_banner1
+                    };
+                    temp.push(obj);
+                  });
+                  //更新数据
+                  this.CHANGE_NEWHOUSE(temp);
+                }else {
+                    this.CHANGE_NEWHOUSE([]);
+                }
+              }else {
+                this.$Message.error('参数错误');
+              };
+              this.showSpin = false;
+            },err=>{
+              console.log(err);
+              this.showSpin = false;
+            });
+
+        },
+        ...mapMutations(['CHANGE_NEWHOUSE'])
 
     },
     components:{
@@ -454,6 +486,18 @@
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
         padding: 6px 0;
+    }
+
+    .no-house {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 1rem;
+        color: #515a6e;
+    }
+
+
+    .demo-spin-icon-load{
+        animation: ani-demo-spin 1s linear infinite;
     }
 </style>
 

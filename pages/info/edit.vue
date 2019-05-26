@@ -96,7 +96,6 @@
                     <Button type="warning" long>完善个人资料</Button>
                 </Col>
             </Row>
-            
         </section>
     </div>
 </template>

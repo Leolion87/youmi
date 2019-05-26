@@ -9,4 +9,13 @@
   export function QUITlOGIN_LOADING(state,loading){
     state.showLoginLoading = loading;
   };
+
+  //房产
+  export function CHANGE_NEWHOUSE(state,house){
+    state.houses = house;
+  };
+  export function SHOW_SPIN(state,show){
+    state.hShowSpin = show;
+  };
+
   

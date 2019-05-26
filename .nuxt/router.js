@@ -13,6 +13,8 @@ const _377b9451 = () => interopDefault(import('..\\pages\\news\\index.vue' /* we
 const _0b81d464 = () => interopDefault(import('..\\pages\\post\\index.vue' /* webpackChunkName: "pages_post_index" */))
 const _cee2dc34 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages_search" */))
 const _41dd1752 = () => interopDefault(import('..\\pages\\status\\index.vue' /* webpackChunkName: "pages_status_index" */))
+const _14cfe8a3 = () => interopDefault(import('..\\pages\\house\\detail.vue' /* webpackChunkName: "pages_house_detail" */))
+const _283bb27a = () => interopDefault(import('..\\pages\\house\\search.vue' /* webpackChunkName: "pages_house_search" */))
 const _51ccb8d1 = () => interopDefault(import('..\\pages\\info\\about.vue' /* webpackChunkName: "pages_info_about" */))
 const _7b8d3594 = () => interopDefault(import('..\\pages\\info\\auth.vue' /* webpackChunkName: "pages_info_auth" */))
 const _53fb21c7 = () => interopDefault(import('..\\pages\\info\\changeName.vue' /* webpackChunkName: "pages_info_changeName" */))
@@ -92,7 +94,7 @@ const scrollBehavior = function (to, from, savedPosition) {
 export function createRouter() {
   return new Router({
     mode: 'history',
-    base: '/wap/',
+    base: '/',
     linkActiveClass: 'nuxt-link-active',
     linkExactActiveClass: 'nuxt-link-exact-active',
     scrollBehavior,
@@ -141,6 +143,14 @@ export function createRouter() {
       path: "/status",
       component: _41dd1752,
       name: "status"
+    }, {
+      path: "/house/detail",
+      component: _14cfe8a3,
+      name: "house-detail"
+    }, {
+      path: "/house/search",
+      component: _283bb27a,
+      name: "house-search"
     }, {
       path: "/info/about",
       component: _51ccb8d1,

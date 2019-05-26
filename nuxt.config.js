@@ -42,11 +42,20 @@ module.exports = {
             component: 'pages/house/index.vue'
         },
         {
+            name: 'house',
+            path: '/search',
+            component: 'pages/house/search.vue'
+        },
+        {
+            name: 'house',
+            path: '/detail',
+            component: 'pages/house/detail.vue'
+        },
+        {
             name: 'detail',
             path: '/detai',
             component: 'pages/detail.vue'
         },
-        
         {
             path: '/contact',
             name: 'contact',

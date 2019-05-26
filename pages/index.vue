@@ -105,9 +105,10 @@
   </div>
 </template>
 <script>
-//   import service from '~/service/index.js';
+  import api from '@/service/api.js'
   import vFooter from '~/components/footer.vue';
   import vHeader from '~/components/header.vue';
+  import {mapState,mapActions,mapMutations} from 'vuex';
   export default {
     data(){
       return {
@@ -281,6 +282,7 @@
             case 1:
                 //新房楼盘
                 _this.$router.push('/house');
+                // _this.getNewHouse();
             break;
             case 2: 
                  _this.$router.push('/company');
@@ -299,15 +301,49 @@
             break;
         }
       },
-      haha(){
+      //获取房产列表
+      getNewHouse(){
+        this.SHOW_SPIN(true);
         let params = {
-            "name": 15255575891,
-            "pwd": "123456"
+            page_index: 1,
+            page_size: 30
         };
-        this.$axios.post("index.php/user/login/register",params).then(res=>{
-            console.log(res)
-        })
-      }
+        api.getNewHouse(params).then(res=>{
+            if(res.success) {
+                if(res.data.data && res.data.data.length) {
+                    let temp = [];
+                    let list = res.data.data;
+
+                    list.forEach(item => {
+                    let obj = {
+                        id: item.house_id,
+                        name: item.house_name,
+                        isTop: item.isTop,
+                        isCommission: item.isCommission,
+                        price: item.house_price,
+                        address: item.province + item.city,
+                        houseType: item.house_type.split(','),
+                        company: item.company,
+                        thumbnail: 'http://127.0.0.1'+item.house_banner1
+                    };
+                    temp.push(obj);
+                    });
+                    //更新数据
+                    this.CHANGE_NEWHOUSE(temp);
+                }else {
+                    this.CHANGE_NEWHOUSE([]);
+                };
+                this.SHOW_SPIN(false);
+            }else {
+              this.$Message.error('参数错误');
+              this.SHOW_SPIN(false);
+            }
+        },err=>{
+            console.log(err);
+            this.SHOW_SPIN(false);
+        });
+      },
+      ...mapMutations(['CHANGE_NEWHOUSE','SHOW_SPIN'])
     },
     components:{
         vFooter,

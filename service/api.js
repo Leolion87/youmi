@@ -44,5 +44,16 @@ export default {
   },
   uploadAvatar (params) {
     return fetch('/wapApi/index.php/user/login/upload', params)
-  }
+  },
+
+
+  //房产
+  getHotHouse (params) {
+    //获取热门房产
+    return fetch('/wapApi/index.php/house/house/getHotHouse', params)
+  },
+  getNewHouse (params) {
+    //获取楼盘列表
+    return fetch('/wapApi/index.php/house/house/query', params)
+  },
 }
