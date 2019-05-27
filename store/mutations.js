@@ -17,5 +17,18 @@
   export function SHOW_SPIN(state,show){
     state.hShowSpin = show;
   };
+  //改变删选条件
+  export function CHANGE_SELECTED_HOUSE(state,houseId){
+    state.selectedHotHouse = houseId;
+  };
+  export function CHANGE_SELECTED_AREA(state,area){
+    state.selectedArea = area;
+  };
+  export function CHANGE_SELECTED_PRICE(state,price){
+    state.selectedAveragePrice = price;
+  };
+  export function CHANGE_SELECTED_PAYMENT(state,payment){
+    state.selectedDownPayment = payment;
+  };
 
   

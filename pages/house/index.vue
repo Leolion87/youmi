@@ -17,43 +17,49 @@
         <div class='sortby'>
             <Row>
                 <Col span="6">
-                    <Cascader :data="data" @on-change="handleChange">
+                    <Cascader :data="data" @on-change="changeArea" 
+                              v-click-outside="onClickOutsideArea">
                         {{ text }} <Icon type="md-arrow-dropdown" />
                     </Cascader>
                 </Col>
                 <Col span="6">
-                    <Dropdown>
-                        <span>
-                            均价
+                    <Dropdown trigger="custom" 
+                              :visible="showPriceMenu" 
+                               @on-click='choosePrice' 
+                               v-click-outside="onClickOutsidePrice">
+                        <span @click='showPrice'>
+                            {{defaultPrice}}
                             <Icon type="md-arrow-dropdown" />
                         </span>
                         <DropdownMenu slot="list">
-                            <DropdownItem>不限</DropdownItem>
-                            <DropdownItem>5000以下</DropdownItem>
-                            <DropdownItem>5000-6000</DropdownItem>
-                            <DropdownItem>6000-7000</DropdownItem>
-                            <DropdownItem>7000-8000</DropdownItem>
-                            <DropdownItem>8000-9000</DropdownItem>
-                            <DropdownItem>9000-10000</DropdownItem>
-                            <DropdownItem>10000以上</DropdownItem>
+                            <DropdownItem v-for="(item,$index) in averagePrice" 
+                                          :key="$index" 
+                                          :selected="activePriceId == item.name"
+                                          :name="item.name">
+                                {{item.range}}
+                            </DropdownItem>
+                            
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
                 <Col span="6">
-                    <Dropdown>
-                        <span>
-                            首付
+                    <Dropdown @on-click='chooseDownPayment' 
+                              trigger="custom" 
+                              :visible="showPaymentMenu" 
+                              v-click-outside="onClickOutsidePayment">
+                        <span @click.stop='clickPayment'>
+                            {{defaultPayment}}
                             <Icon type="md-arrow-dropdown" />
                         </span>
                         <DropdownMenu slot="list">
-                            <DropdownItem>不限</DropdownItem>
-                            <DropdownItem>20万以下</DropdownItem>
-                            <DropdownItem>20-25万</DropdownItem>
-                            <DropdownItem>25-30万</DropdownItem>
-                            <DropdownItem>35-40万</DropdownItem>
-                            <DropdownItem>40-50万</DropdownItem>
-                            <DropdownItem>50-60万</DropdownItem>
-                            <DropdownItem>60-80万</DropdownItem>
+                            <DropdownItem v-for="(item,$index) in downPayment" 
+                                          :key="$index" 
+                                          :selected="activePaymentId == item.name"
+                                          :name="item.name">
+                                {{item.range}}
+                            </DropdownItem>
+
+
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
@@ -163,8 +169,6 @@
          </div>
      </div>
 
-
-
         <Spin fix v-show='hShowSpin'>
             <Icon type="ios-loading" size=18 class="demo-spin-icon-load"></Icon>
             <div>正在加载中...</div>
@@ -173,6 +177,7 @@
 </template>
 <script>
   import api from '@/service/api.js'
+  import vClickOutside from 'v-click-outside'
   import vFooter from '~/components/footer.vue';
   import cityData from '~/static/js/area.js';
   import {mapState,mapActions,mapMutations} from 'vuex';
@@ -186,7 +191,38 @@
             
             hotHouse:[],//热门房产
             isActive: true,
-            activeId: 0
+            activeId: 0,
+    
+            //平均房价
+            averagePrice: [
+                {id: 0, name: '0-0', range: '不限'},
+                {id: 1, name: '0-5000', range: '5000以下'},
+                {id: 2, name: '5000-6000', range: '5000-6000'},
+                {id: 3, name: '6000-7000', range: '6000-7000'},
+                {id: 4, name: '7000-8000', range: '7000-8000'},
+                {id: 5, name: '8000-9000', range: '8000-9000'},
+                {id: 6, name: '9000-10000', range: '9000-10000'},
+                {id: 7, name: '10000-0', range: '10000以上'},
+            ],
+            activePriceId: 0,
+            showPriceMenu: false,
+            defaultPrice: '均价',
+
+            //首付
+            downPayment:[
+                {id: 0, name: '0-0', range: '不限'},
+                {id: 1, name: '0-20', range: '20万以下'},
+                {id: 2, name: '20-25', range: '20-25万'},
+                {id: 3, name: '25-30', range: '25-30万'},
+                {id: 4, name: '35-40', range: '35-40万'},
+                {id: 5, name: '40-50', range: '40-50万'},
+                {id: 6, name: '50-60', range: '50-60万'},
+                {id: 7, name: '60-80', range: '60-80万'},
+            ],
+            showPaymentMenu: false,
+            activePaymentId: 0,
+            defaultPayment: '首付'
+
          }
     },
     mounted(){
@@ -194,12 +230,43 @@
         this.getNewHouse();
     },
     computed: {
-        ...mapState(['houses','hShowSpin'])
+        ...mapState(['houses','hShowSpin','selectedHotHouse','selectedArea','selectedAveragePrice','selectedDownPayment'])
     },
     methods: {
-        handleChange (value, selectedData) {
-                let txt = selectedData.map(o => o.label).join(', ');
-                this.text = txt.split(',')[0];
+        changeArea (value, selectedData) {
+            let txt = selectedData.map(o => o.label).join(', ');
+            let areaArr = txt.split(',')
+            this.text = areaArr[areaArr.length-1];
+
+            this.CHANGE_SELECTED_AREA(this.text);
+            this.getAllNewHouse();
+            
+        },
+        choosePrice(price){
+            // console.log(price);
+            
+            this.CHANGE_SELECTED_PRICE(price);
+            this.getAllNewHouse();
+            this.showPriceMenu =false;
+            this.activePriceId = price;
+
+            if(price == '0-0'){
+                this.defaultPrice = '均价';
+            }else {
+                this.defaultPrice = price;
+            };
+        },
+        chooseDownPayment(payment){
+            this.activePaymentId = payment;
+            this.CHANGE_SELECTED_PAYMENT(payment);
+            this.getAllNewHouse();
+            this.showPaymentMenu = false;
+
+            if(payment == '0-0'){
+                this.defaultPayment = '首付';
+            }else {
+                this.defaultPayment = payment+'万';
+            };
         },
         //获取热门房产
         getHotHouse(){
@@ -224,40 +291,8 @@
                 page_index: 1,
                 page_size: 30
             };
-            api.getNewHouse(params).then(res=>{
-              if(res.success) {
-                if(res.data.data && res.data.data.length) {
-                  let temp = [];
-                  let list = res.data.data;
 
-                  list.forEach(item => {
-                    let obj = {
-                        id: item.house_id,
-                        name: item.house_name,
-                        isTop: item.isTop,
-                        isCommission: item.isCommission,
-                        price: item.house_price,
-                        address: item.province + item.city,
-                        houseType: item.house_type.split(','),
-                        company: item.company,
-                        thumbnail: 'http://127.0.0.1'+item.house_banner1
-                    };
-                    temp.push(obj);
-                  });
-                  //更新数据
-                  this.CHANGE_NEWHOUSE(temp);
-                }else {
-                    this.CHANGE_NEWHOUSE([]);
-                };
-                this.showSpin = false;
-              }else {
-                this.$Message.error('参数错误');
-                this.showSpin = false;
-              }
-            },err=>{
-              console.log(err);
-              this.showSpin = false;
-            });
+            this.getAllNewHouse(params);
         },
         toSearch(){
           this.$router.push('/house/search');
@@ -266,11 +301,53 @@
             this.showSpin = true;
 
             this.activeId = index;
+            // let params = {
+            //     page_index: 1,
+            //     page_size: 30,
+            //     hot_house_id: item.hot_house_id
+            // };
+
+
+            // 改变选择的热门房产
+            this.CHANGE_SELECTED_HOUSE(item.hot_house_id);
+            
+            this.getAllNewHouse();
+            
+            
+
+            
+
+        },
+        getAllNewHouse(){
+            //是否热门房产
+
             let params = {
                 page_index: 1,
-                page_size: 30,
-                hot_house_id: item.hot_house_id
+                page_size: 30
             };
+            if(this.selectedHotHouse){
+                params.hot_house_id = this.selectedHotHouse;
+            };
+            if(this.selectedArea){
+                params.county = this.selectedArea;
+            };
+            if(this.selectedAveragePrice){
+              let average_low = this.selectedAveragePrice.split('-')[0];
+              let average_max = this.selectedAveragePrice.split('-')[1];
+
+              params.average_low = average_low;
+              params.average_max = average_max;
+
+            };
+            if(this.selectedDownPayment){
+                let payment_low = this.selectedDownPayment.split('-')[0];
+                let payment_max = this.selectedDownPayment.split('-')[1];
+
+                params.payment_low = payment_low;
+                params.payment_max = payment_max;
+            };
+
+
             api.getNewHouse(params).then(res=>{
               if(res.success) {
                 if(res.data.data && res.data.data.length) {
@@ -304,10 +381,27 @@
               console.log(err);
               this.showSpin = false;
             });
-
         },
-        ...mapMutations(['CHANGE_NEWHOUSE'])
+        showPrice(){
+            this.showPriceMenu = !this.showPriceMenu;
+        },
+        clickPayment(){
+            this.showPaymentMenu = !this.showPaymentMenu;
+        },
+        onClickOutsidePrice(){
+            this.showPriceMenu = false;
+        },
+        onClickOutsidePayment(){
+            this.showPaymentMenu = false; 
+        },
+        onClickOutsideArea(){
+            console.log('area')
+        },
+        ...mapMutations(['CHANGE_NEWHOUSE','CHANGE_SELECTED_HOUSE','CHANGE_SELECTED_AREA','CHANGE_SELECTED_PRICE','CHANGE_SELECTED_PAYMENT'])
 
+    },
+    directives: {
+      clickOutside: vClickOutside.directive
     },
     components:{
         vFooter

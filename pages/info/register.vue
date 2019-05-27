@@ -8,9 +8,9 @@
         <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
           <FormItem label="类型" prop="user_type">
             <RadioGroup v-model="formValidate.user_type">
-              <Radio label="1">分销经纪人</Radio>
-              <Radio label="2">渠道专员</Radio>
-              <Radio label="3">其他</Radio>
+              <Radio label="1">分销经纪公司</Radio>
+              <Radio label="2">总代公司</Radio>
+              <Radio label="3">开发商</Radio>
             </RadioGroup>
           </FormItem>
           <FormItem label="用户名" prop="name">
