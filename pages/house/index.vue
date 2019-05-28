@@ -1,173 +1,172 @@
 <template>
    <div class='list-loupan'>
-     <div class='header'>
-        <h5>新房圈-新房</h5>
-        <div class='xinfang-cate margin-top5 clearfix'>
-            <div class='cate-left left'>
-                <!-- <span :class="{active: isActive}">全部</span> -->
-                <span v-for='(item,$index) in hotHouse' :key="$index" 
-                      @click.stop='chooseHotHouse(item,$index)'
-                     :class="{active: $index == activeId}">
-                    {{item.hot_house_name}}
-                </span>
+        <div class='header'>
+            <h5>新房圈-新房</h5>
+            <div class='xinfang-cate margin-top5 clearfix'>
+                <div class='cate-left left'>
+                    <!-- <span :class="{active: isActive}">全部</span> -->
+                    <span v-for='(item,$index) in hotHouse' :key="$index" 
+                        @click.stop='chooseHotHouse(item,$index)'
+                        :class="{active: $index == activeId}">
+                        {{item.hot_house_name}}
+                    </span>
+                </div>
+                <div class='cate-right right'>
+                    <Icon type="ios-search-outline" size='20' @click.stop='toSearch'/>查找</div>
             </div>
-            <div class='cate-right right'>
-                <Icon type="ios-search-outline" size='20' @click.stop='toSearch'/>查找</div>
-        </div>
-        <div class='sortby'>
-            <Row>
-                <Col span="6">
-                    <Cascader :data="data" @on-change="changeArea" 
-                              v-click-outside="onClickOutsideArea">
-                        {{ text }} <Icon type="md-arrow-dropdown" />
-                    </Cascader>
-                </Col>
-                <Col span="6">
-                    <Dropdown trigger="custom" 
-                              :visible="showPriceMenu" 
-                               @on-click='choosePrice' 
-                               v-click-outside="onClickOutsidePrice">
-                        <span @click='showPrice'>
-                            {{defaultPrice}}
-                            <Icon type="md-arrow-dropdown" />
-                        </span>
-                        <DropdownMenu slot="list">
-                            <DropdownItem v-for="(item,$index) in averagePrice" 
-                                          :key="$index" 
-                                          :selected="activePriceId == item.name"
-                                          :name="item.name">
-                                {{item.range}}
-                            </DropdownItem>
-                            
-                        </DropdownMenu>
-                    </Dropdown>
-                </Col>
-                <Col span="6">
-                    <Dropdown @on-click='chooseDownPayment' 
-                              trigger="custom" 
-                              :visible="showPaymentMenu" 
-                              v-click-outside="onClickOutsidePayment">
-                        <span @click.stop='clickPayment'>
-                            {{defaultPayment}}
-                            <Icon type="md-arrow-dropdown" />
-                        </span>
-                        <DropdownMenu slot="list">
-                            <DropdownItem v-for="(item,$index) in downPayment" 
-                                          :key="$index" 
-                                          :selected="activePaymentId == item.name"
-                                          :name="item.name">
-                                {{item.range}}
-                            </DropdownItem>
+            <div class='sortby'>
+                <Row>
+                    <Col span="6">
+                        <Cascader :data="data" @on-change="changeArea" 
+                                v-click-outside="onClickOutsideArea">
+                            {{ text }} <Icon type="md-arrow-dropdown" />
+                        </Cascader>
+                    </Col>
+                    <Col span="6">
+                        <Dropdown trigger="custom" 
+                                :visible="showPriceMenu" 
+                                @on-click='choosePrice' 
+                                v-click-outside="onClickOutsidePrice">
+                            <span @click='showPrice'>
+                                {{defaultPrice}}
+                                <Icon type="md-arrow-dropdown" />
+                            </span>
+                            <DropdownMenu slot="list">
+                                <DropdownItem v-for="(item,$index) in averagePrice" 
+                                            :key="$index" 
+                                            :selected="activePriceId == item.name"
+                                            :name="item.name">
+                                    {{item.range}}
+                                </DropdownItem>
+                                
+                            </DropdownMenu>
+                        </Dropdown>
+                    </Col>
+                    <Col span="6">
+                        <Dropdown @on-click='chooseDownPayment' 
+                                trigger="custom" 
+                                :visible="showPaymentMenu" 
+                                v-click-outside="onClickOutsidePayment">
+                            <span @click.stop='clickPayment'>
+                                {{defaultPayment}}
+                                <Icon type="md-arrow-dropdown" />
+                            </span>
+                            <DropdownMenu slot="list">
+                                <DropdownItem v-for="(item,$index) in downPayment" 
+                                            :key="$index" 
+                                            :selected="activePaymentId == item.name"
+                                            :name="item.name">
+                                    {{item.range}}
+                                </DropdownItem>
 
 
-                        </DropdownMenu>
-                    </Dropdown>
-                </Col>
-                <Col span="6" class-name='more-sort'>
-                   <span>更多</span>
-                   <Icon type="md-arrow-dropdown" />
-                </Col>
-            </Row>
-        </div>
-
-        <div class='more-selected-panel' v-show='showAllSortByPanel'>
-            <div class='inner'>
-                <div class='sorts margin-top10'>
-                        <h4>排序</h4>
-                        <div class='h-sort'>
-                            <a href='' class='active'>不限</a>
-                            <a href='' >价格从高到低</a>
-                            <a href=''>价格从低到高</a>
-                            <a href=''>发布时间排序</a>
-                            <a href=''>点击量排序</a>
-                        </div>
-                    </div>
+                            </DropdownMenu>
+                        </Dropdown>
+                    </Col>
+                    <Col span="6" class-name='more-sort'>
+                    <span>更多</span>
+                    <Icon type="md-arrow-dropdown" />
+                    </Col>
+                </Row>
+            </div>
+            <div class='more-selected-panel' v-show='showAllSortByPanel'>
+                <div class='inner'>
                     <div class='sorts margin-top10'>
-                        <h4>物业类型</h4>
-                        <div class='wuye-sort'>
-                            <a href=''>不限</a>
-                            <a href=''>住宅</a>
-                            <a href='' class='active'>别墅</a>
-                            <a href=''>商住</a>
-                            <a href=''>商铺</a>
-                            <a href=''>厂房</a>
-                            <a href=''>写字楼</a>
+                            <h4>排序</h4>
+                            <div class='h-sort'>
+                                <a href='' class='active'>不限</a>
+                                <a href='' >价格从高到低</a>
+                                <a href=''>价格从低到高</a>
+                                <a href=''>发布时间排序</a>
+                                <a href=''>点击量排序</a>
+                            </div>
                         </div>
+                        <div class='sorts margin-top10'>
+                            <h4>物业类型</h4>
+                            <div class='wuye-sort'>
+                                <a href=''>不限</a>
+                                <a href=''>住宅</a>
+                                <a href='' class='active'>别墅</a>
+                                <a href=''>商住</a>
+                                <a href=''>商铺</a>
+                                <a href=''>厂房</a>
+                                <a href=''>写字楼</a>
+                            </div>
+                        </div>
+                        <div class='sorts margin-top10'>
+                            <h4>装修状态</h4>
+                            <div class='status-sort'>
+                                <a href='' class='active'>不限</a>
+                                <a href='' >毛坯</a>
+                                <a href=''>简装</a>
+                                <a href=''>精装修</a>
+                            </div>
                     </div>
-                    <div class='sorts margin-top10'>
-                        <h4>装修状态</h4>
-                        <div class='status-sort'>
-                            <a href='' class='active'>不限</a>
-                            <a href='' >毛坯</a>
-                            <a href=''>简装</a>
-                            <a href=''>精装修</a>
-                        </div>
+                </div>
+                <div class='sort-btn'>
+                    <Row type="flex" justify="space-between">
+                        <Col span="4">
+                                <Button>重置</Button>
+                        </Col>
+                        <Col span="4">
+                            <Button type="primary">确定</Button>
+                        </Col>
+                    </Row>
                 </div>
             </div>
-            <div class='sort-btn'>
-               <Row type="flex" justify="space-between">
-                    <Col span="4">
-                         <Button>重置</Button>
+        </div>
+        <div class='content'>
+            <div class='total-house'>
+                共有<span class='total-numer'>{{houses.length}}</span>个楼盘
+            </div>
+            <div v-if="houses.length >0" class='house-list'>
+                <Row class-name='house' 
+                    v-for='(item,$index) in houses' 
+                    @click.native='toHouseDetail'
+                    :class='{isTopHouse: item.isTop == 1}'
+                    :key='$index'>
+                    <Col span='7'>
+                        <img :src='item.thumbnail' style='width: 7rem;'>
                     </Col>
-                    <Col span="4">
-                        <Button type="primary">确定</Button>
+                    <Col span='17' class='house-des'>
+                        <Col span='24'>
+                            <Col span='13' offset="1">
+                                <span class='isTop' v-if='item.isTop == 1'>顶</span> 
+                                <span class='house-name'>{{item.name}}</span>
+                            </Col>
+                            <Col span='6'  offset="4" class-name='house-price'>
+                                {{item.price}}元/平
+                            </Col>
+                        </Col>
+                        <Col span='24' class-name='margin-top5'>
+                            <Col span='13' offset="1">
+                                <span class='house-address'>{{item.address}}</span> 
+                            </Col>
+                            <Col span='7'  
+                                    offset="3" 
+                                    class-name='house-type' v-if='item.houseType.length > 0'>
+                                <span v-for='(h,$hindex) in item.houseType' :key='$hindex'>
+                                    {{h}}
+                                </span>
+                            </Col>
+                        </Col>
+                        <Col span='24' class-name='margin-top5'>
+                            <Col span='13' offset="1">
+                                <span class='isCommision' v-if='item.isCommission == 1'>佣</span> 
+                                <span class='commision-text'>暂无权限查看</span>
+                            </Col>
+                            
+                        </Col>
+                        <Col span='23' offset="1" class-name='margin-top5'>
+                            {{item.company}}
+                        </Col>
                     </Col>
-               </Row>
+                </Row>
+            </div>
+            <div v-else class='no-house'>
+                没有房产信息了
             </div>
         </div>
-
-     </div>
-     <div class='content'>
-         <div class='total-house'>
-             共有<span class='total-numer'>{{houses.length}}</span>个楼盘
-         </div>
-         <div v-if="houses.length >0" class='house-list'>
-             <Row class-name='house' 
-                  v-for='(item,$index) in houses' 
-                  :class='{isTopHouse: item.isTop == 1}'
-                  :key='$index'>
-                <Col span='7'>
-                    <img :src='item.thumbnail' style='width: 7rem;'>
-                </Col>
-                <Col span='17' class='house-des'>
-                    <Col span='24'>
-                        <Col span='13' offset="1">
-                          <span class='isTop' v-if='item.isTop == 1'>顶</span> 
-                          <span class='house-name'>{{item.name}}</span>
-                        </Col>
-                        <Col span='6'  offset="4" class-name='house-price'>
-                          {{item.price}}元/平
-                        </Col>
-                    </Col>
-                    <Col span='24' class-name='margin-top5'>
-                        <Col span='13' offset="1">
-                          <span class='house-address'>{{item.address}}</span> 
-                        </Col>
-                        <Col span='7'  
-                             offset="3" 
-                             class-name='house-type' v-if='item.houseType.length > 0'>
-                            <span v-for='(h,$hindex) in item.houseType' :key='$hindex'>
-                                {{h}}
-                            </span>
-                        </Col>
-                    </Col>
-                    <Col span='24' class-name='margin-top5'>
-                        <Col span='13' offset="1">
-                          <span class='isCommision' v-if='item.isCommission == 1'>佣</span> 
-                          <span class='commision-text'>暂无权限查看</span>
-                        </Col>
-                        
-                    </Col>
-                    <Col span='23' offset="1" class-name='margin-top5'>
-                        {{item.company}}
-                    </Col>
-                </Col>
-             </Row>
-         </div>
-         <div v-else class='no-house'>
-             没有房产信息了
-         </div>
-     </div>
 
         <Spin fix v-show='hShowSpin'>
             <Icon type="ios-loading" size=18 class="demo-spin-icon-load"></Icon>
@@ -396,6 +395,10 @@
         },
         onClickOutsideArea(){
             console.log('area')
+        },
+        toHouseDetail(){
+            console.log("eeeeee")
+            this.$router.push('/house/detail');
         },
         ...mapMutations(['CHANGE_NEWHOUSE','CHANGE_SELECTED_HOUSE','CHANGE_SELECTED_AREA','CHANGE_SELECTED_PRICE','CHANGE_SELECTED_PAYMENT'])
 

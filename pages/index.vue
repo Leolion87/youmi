@@ -62,8 +62,6 @@
                 </Col>
             </Row>
         </div>
-
-        
         <div class='news white'>
             <ul class='index-news-list'>
                 <li v-for='(item,$index) in news' :key='$index'>

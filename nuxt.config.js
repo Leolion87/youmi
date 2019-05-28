@@ -9,7 +9,10 @@ module.exports = {
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/assets/images/favicon.ico' }
-        ]
+        ],
+        script: [
+            { src: 'http://api.map.baidu.com/api?v=2.0&ak=kv1b11NkPQdT05ORSsE9XChvu6O27LnA', async: true, defer: true }
+        ],
     },
     build: {
     },
@@ -17,7 +20,7 @@ module.exports = {
         '@nuxtjs/axios',
     ],
     plugins: [
-        { src: '~plugins/iview.js', ssr: true },
+        { src: '~plugins/iview.js', ssr: true }
     ],
     css: [
         '~assets/css/reset.css'
