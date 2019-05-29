@@ -12,5 +12,7 @@ export default {
     selectedArea: '',//区域
     selectedAveragePrice: '',//均价
     selectedDownPayment: '',//首付
+    currentHouse: {}
+
   
 }

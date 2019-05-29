@@ -122,7 +122,7 @@
             <div v-if="houses.length >0" class='house-list'>
                 <Row class-name='house' 
                     v-for='(item,$index) in houses' 
-                    @click.native='toHouseDetail'
+                    @click.native='toHouseDetail(item)'
                     :class='{isTopHouse: item.isTop == 1}'
                     :key='$index'>
                     <Col span='7'>
@@ -300,22 +300,9 @@
             this.showSpin = true;
 
             this.activeId = index;
-            // let params = {
-            //     page_index: 1,
-            //     page_size: 30,
-            //     hot_house_id: item.hot_house_id
-            // };
-
-
             // 改变选择的热门房产
             this.CHANGE_SELECTED_HOUSE(item.hot_house_id);
-            
             this.getAllNewHouse();
-            
-            
-
-            
-
         },
         getAllNewHouse(){
             //是否热门房产
@@ -396,11 +383,11 @@
         onClickOutsideArea(){
             console.log('area')
         },
-        toHouseDetail(){
-            console.log("eeeeee")
+        toHouseDetail(item){
             this.$router.push('/house/detail');
+            this.CHANGE_CURRENT_HOUSE(item);
         },
-        ...mapMutations(['CHANGE_NEWHOUSE','CHANGE_SELECTED_HOUSE','CHANGE_SELECTED_AREA','CHANGE_SELECTED_PRICE','CHANGE_SELECTED_PAYMENT'])
+        ...mapMutations(['CHANGE_NEWHOUSE','CHANGE_SELECTED_HOUSE','CHANGE_SELECTED_AREA','CHANGE_SELECTED_PRICE','CHANGE_SELECTED_PAYMENT','CHANGE_CURRENT_HOUSE'])
 
     },
     directives: {

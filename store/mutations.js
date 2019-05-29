@@ -30,5 +30,9 @@
   export function CHANGE_SELECTED_PAYMENT(state,payment){
     state.selectedDownPayment = payment;
   };
+  //
+  export function CHANGE_CURRENT_HOUSE(state,current){
+    state.currentHouse = current;
+  };
 
   

@@ -5,33 +5,18 @@
             <img src='http://www.xinfangquan.cn/images/banner/f1.jpg'>
         </div>
         <Row class-name='top-items'>
-            <Col span='6'>
-                <img src='http://pic.app.0550.com/_20180627152452_5b333bc476458.png'>
-                <span>项目找总代</span>
+            <Col span='6' v-for="(item,$index) in kinds" :key="$index">
+                <img :src='item.url'>
+                <span>{{item.name}}</span>
              </Col>
-            <Col span='6'>
-                <img src='http://pic.app.0550.com/_20180627152452_5b333bc476458.png'>
-                <span>总代找项目</span>
-            </Col>
-            <Col span='6'>
-                <img src='http://pic.app.0550.com/_20180627152452_5b333bc476458.png'>
-                <span>项目找资方</span>
-            </Col>
-            <Col span='6'>
-                <img src='http://pic.app.0550.com/_20180627152452_5b333bc476458.png'>
-                <span>二级渠道</span>
-            </Col>
         </Row>
       </div>
       <Row class-name='forums'>
-            <Col span='8' class-name='active'>
+            <Col span='8' v-for="(item,$index) in forumCates" 
+                 :key="$index" 
+                 @click.stop="chooseCate(item)"
+                :class="{active: activeCatesId == item.id}">
                 <span>最新回复</span>
-            </Col>
-            <Col span='8'>
-                <span>最新发布</span>
-            </Col>
-            <Col span='8'>
-                <span>精华热贴</span>
             </Col>
       </Row>
       <section class='forums-list'>
@@ -276,11 +261,41 @@
             
                 ],
                 rencentPost: [],
-                hotContent: []
+                hotContent: [],
+                kinds: [
+                    {
+                        id: 1,
+                        name: '项目找总代',
+                        url: 'http://www.xinfangquan.cn/images/fzongbao.png'
+                    },
+                    {
+                        id: 2,
+                        name: '总代找项目',
+                        url: 'http://www.xinfangquan.cn/images/fxiangmu.jpg'
+                    },
+                    {
+                        id: 3,
+                        name: '项目找资方',
+                        url: 'http://www.xinfangquan.cn/images/fzifang.jpg'
+                    },
+                    {
+                        id: 4,
+                        name: '二级渠道',
+                        url: 'http://www.xinfangquan.cn/images/ferji.jpg'
+                    },
+                ],
+                forumCates: [
+                    {id: 1,name: '最新回复'},
+                    {id: 2,name: '最新发布'},
+                    {id: 3,name: '精华热贴'},
+                ],
+                activeCatesId: 1
             }
         },
         methods: {
-
+            chooseCate(item){
+                console.log(item);
+            }
         },
         components:{
 

@@ -10,9 +10,9 @@ module.exports = {
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/assets/images/favicon.ico' }
         ],
-        script: [
-            { src: 'http://api.map.baidu.com/api?v=2.0&ak=kv1b11NkPQdT05ORSsE9XChvu6O27LnA', async: true, defer: true }
-        ],
+        // script: [
+        //     { src: 'http://api.map.baidu.com/api?v=2.0&ak=kv1b11NkPQdT05ORSsE9XChvu6O27LnA', async: true, defer: true }
+        // ],
     },
     build: {
     },
